@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solis App - Alfred Duckworth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">ALFRED DUCKWORTH</div>
+            
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li> 
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-content">
+
+        <section class="project-header">
+            <h1>Solis</h1>
+            <p class="project-subtitle">Full Stack Web App (Python/Flask) & Product Design</p>
+            <img src="images/solis-hero.png" alt="Hero mockup of the Solis dashboard running on a laptop">
+        </section>
+
+        <section class="project-details">
+            <div class="project-section">
+                <h2>The Problem</h2>
+                <p>Personal organization apps are often fragmented. A user might need one app for habit tracking, another for gym logs, and a third for shared family chores. This context switching creates friction. I wanted to build <strong>Solis</strong>: a unified "life OS" that brings personal growth and household management into a single, cohesive interface.</p>
+            </div>
+
+            <div class="project-section">
+                <h2>The Tech Stack & Design</h2>
+                <p>This wasn't just a design concept—I built the entire application from scratch.</p>
+                <ul>
+                    <li><strong>Backend:</strong> Python (Flask) using Blueprints for modular architecture and SQLAlchemy for complex database relationships (Users, Households, Habits).</li>
+                    <li><strong>Frontend:</strong> HTML5, CSS3 (CSS Grid/Flexbox), and Vanilla JavaScript for asynchronous updates (Fetch API).</li>
+                    <li><strong>Database:</strong> SQLite with relational modeling for shared household data.</li>
+                </ul>
+                
+                <div class="project-image-gallery">
+                    <img src="images/solis-code-snippet.png" alt="Screenshot of the Python backend code structure">
+                    <img src="images/solis-style-guide.png" alt="The color palette (Dark Mode #1a1a2e) and typography">
+                </div>
+
+                <p><strong>Design Philosophy:</strong> I chose a deep "Dark Mode" aesthetic (<code>#1a1a2e</code>) paired with a vibrant purple accent (<code>#8a4fff</code>) to reduce eye strain during early morning or late night use. The interface relies on a card-based grid layout that adapts seamlessly from desktop to mobile.</p>
+            </div>
+
+            <div class="project-section">
+                <h2>Key Features</h2>
+                <p>The application handles complex logic behind a simple UI:</p>
+                <ul>
+                    <li><strong>Household Sync:</strong> Users can invite family members to join their "Household," enabling a shared Shopping List and Chore Chart.</li>
+                    <li><strong>Fitness Hub:</strong> Custom workout routines linked directly to habit completion logic.</li>
+                    <li><strong>Smart Journaling:</strong> A "Win of the Day" prompt and daily reflection that saves to a history database.</li>
+                </ul>
+
+                <div class="project-image-gallery">
+                    <img src="images/solis-screen-dashboard.png" alt="The main dashboard showing habits and wins">
+                    <img src="images/solis-screen-fitness.png" alt="The fitness tracking module">
+                    <img src="images/solis-screen-journal.png" alt="The journal chart">
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>Outcome</h2>
+                <p>Solis is a fully functional web application. Building it enhanced my ability to think systematically—understanding how a button on the frontend interacts with the database model on the backend. It bridges the gap between visual design and software engineering.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

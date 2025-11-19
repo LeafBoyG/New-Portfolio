@@ -1,0 +1,560 @@
+/* =========== GLOBAL STYLES (Minimalist) =========== */
+:root {
+    --dark-green: #0a3622;  /* Your primary dark green */
+    --text-color: #222222; /* A dark, soft black for text */
+    --background: #ffffff; /* A clean white background */
+    --light-gray: #777777; /* For subtle text */
+}
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    line-height: 1.7; /* Increased line height for readability */
+    -webkit-font-smoothing: antialiased; /* Smoother text */
+}
+
+/* =========== HEADER & NAVIGATION (Minimalist) =========== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2.5rem; /* More padding for space */
+    max-width: 1200px;
+    margin: 0 auto;
+    /* REMOVED background-color and border-bottom for a cleaner look */
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-green); /* Logo is your main brand color */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--dark-green);
+    text-decoration: underline; /* A simple, clear hover state */
+}
+
+/* =========== HERO SECTION (Minimalist) =========== */
+.hero {
+    /* REMOVED the dark green background for a clean, open feel */
+    background-color: var(--background);
+    color: var(--text-color);
+    padding: 6rem 2.5rem;
+    text-align: center;
+    max-width: 800px; /* Constrains text for readability */
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--dark-green); /* The H1 is now the main color focus */
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero .cta-button {
+    /* CHANGED to an 'outline' button. Very minimalist. */
+    background-color: transparent;
+    color: var(--dark-green);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid var(--dark-green); /* The border provides the shape */
+    transition: all 0.3s ease;
+}
+
+.hero .cta-button:hover {
+    background-color: var(--dark-green);
+    color: var(--background); /* Text inverts to white on hover */
+}
+
+/* =========== PROJECT GALLERY (Minimalist) =========== */
+.project-gallery {
+    padding: 4rem 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-gallery h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem; /* More space */
+    color: var(--dark-green);
+    text-align: center;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem; /* Increased gap for more breathing room */
+}
+
+.project-card {
+    /* REMOVED background, border, shadow, and radius */
+    text-align: left;
+    transition: opacity 0.3s ease; /* Simpler hover effect */
+}
+
+.project-card:hover {
+    opacity: 0.8;
+    /* REMOVED the 'transform' for a more subtle feel */
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px; /* Kept a fixed height for a uniform grid */
+    object-fit: cover;
+    background-color: #eee;
+    margin-bottom: 1rem; /* Space between image and text */
+}
+
+.project-card h3 {
+    font-size: 1.25rem;
+    padding: 0; /* REMOVED padding */
+    margin-bottom: 0.25rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: var(--light-gray);
+    padding: 0; /* REMOVED padding */
+}
+
+/* =========== FOOTER (Minimalist) =========== */
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    /* REMOVED dark background */
+    background-color: var(--background);
+    color: var(--light-gray);
+    margin-top: 4rem;
+    border-top: 1px solid #eee; /* A very subtle separator */
+}
+
+/* =========== MOBILE NAVIGATION STYLES =========== */
+
+/* 1. Style the hamburger button */
+.nav-toggle {
+    display: none; /* Hide it on desktop */
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: relative; /* For stacking order */
+    z-index: 1000; /* Makes sure it's on top */
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--dark-green);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: var(--dark-green);
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px; /* Position line above */
+}
+
+.hamburger::after {
+    bottom: -8px; /* Position line below */
+}
+
+/* 2. Style the navigation list for mobile */
+nav ul {
+    /* ... existing styles ... */
+    
+    /* NEW styles for the mobile overlay */
+    position: fixed;
+    background: var(--background);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 900; /* Just behind the hamburger button */
+
+    /* Hide it by default */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+
+    /* Change flex-direction to stack links */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 0; /* Remove desktop margin */
+    margin: 1.5rem 0; /* Add vertical spacing */
+}
+
+nav ul li a {
+    font-size: 1.5rem; /* Make links bigger and easier to tap */
+}
+
+/* 3. The "nav-open" class (added by JavaScript) */
+/* This is what shows the menu */
+nav ul.nav-open {
+    transform: translateX(0); /* Slides menu into view */
+}
+
+/* These styles animate the hamburger icon to an "X" */
+.nav-toggle.nav-open .hamburger {
+    transform: rotate(45deg);
+}
+.nav-toggle.nav-open .hamburger::before {
+    transform: rotate(-90deg) translate(-8px);
+}
+.nav-toggle.nav-open .hamburger::after {
+    opacity: 0; /* Hide the bottom line */
+}
+
+
+/* 4. The Media Query (The "breakpoint") */
+/* This is what makes it all work */
+@media (max-width: 768px) {
+    /* When screen is 768px or less... */
+    
+    .nav-toggle {
+        display: block; /* Show the hamburger button */
+    }
+
+    nav ul {
+        /* This is already styled for mobile above */
+        /* We just confirm the desktop links are hidden */
+        /* by not overriding the transform: translateX(100%) */
+    }
+
+    /* We need to re-hide the desktop list on desktop */
+    nav ul {
+        /* This is a bit tricky, but it's the desktop state */
+        /* We'll override the mobile styles when the screen is WIDER */
+    }
+}
+
+/* 5. Fix desktop nav */
+/* We need to override the mobile styles for desktop */
+@media (min-width: 769px) {
+    nav ul {
+        position: static; /* Not fixed */
+        transform: translateX(0); /* Always visible */
+        flex-direction: row; /* Back to horizontal */
+        background: transparent;
+        /* Re-apply desktop spacing */
+    }
+
+    nav ul li {
+        margin: 0;
+        margin-left: 2rem;
+    }
+    
+    nav ul li a {
+        font-size: 1rem; /* Back to original size */
+    }
+}
+/* =========== ABOUT PAGE STYLES =========== */
+
+.about-content {
+    max-width: 900px; /* Constrains the content width */
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.about-content h1 {
+    font-size: 3.5rem;
+    color: var(--dark-green);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Two-column layout for intro text + image */
+.about-intro {
+    display: flex;
+    flex-wrap: wrap; /* Lets it stack on mobile */
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+}
+
+.intro-text {
+    flex: 2; /* Text takes up more space */
+    min-width: 300px; /* Prevents text from getting too squished */
+}
+
+.intro-text p {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+}
+
+.intro-image {
+    flex: 1; /* Image takes up less space */
+    min-width: 250px;
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    background-color: #eee; /* Placeholder bg */
+}
+
+/* Skills Section */
+.skills-section {
+    text-align: center;
+    border-top: 1px solid #eee; /* Subtle separator */
+    padding-top: 3rem;
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    margin-bottom: 2rem;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; /* Center the categories */
+}
+
+.skill-category {
+    flex-basis: 300px; /* Each category can grow, but starts at 300px */
+    text-align: left;
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--dark-green);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-category ul {
+    list-style: none; /* Removes bullets */
+    padding-left: 0;
+}
+
+.skill-category ul li {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 25px; /* Make room for our custom 'bullet' */
+}
+
+/* Custom bullet using your theme color */
+.skill-category ul li::before {
+    content: '›'; /* A simple chevron */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--dark-green);
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+/* =========== CONTACT PAGE STYLES =========== */
+
+.contact-content {
+    max-width: 700px; /* A good width for a form */
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-header h1 {
+    font-size: 3.5rem;
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+}
+
+.contact-header p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Link style within the contact text */
+.contact-header p a {
+    color: var(--dark-green);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid var(--dark-green);
+    transition: all 0.3s ease;
+}
+
+.contact-header p a:hover {
+    background-color: var(--dark-green);
+    color: var(--background);
+    border-bottom-color: var(--background);
+}
+
+/* Form Styling */
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-color);
+    background-color: var(--background);
+    border: 2px solid #ddd; /* Subtle border */
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--dark-green); /* Highlight with theme color */
+    outline: none; /* Remove default blue glow */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resize, not horizontal */
+}
+
+/* Re-using the .cta-button style from the hero section */
+.contact-form .cta-button {
+    /* We can re-use the .cta-button style from the hero */
+    /* Let's make sure it's full-width */
+    width: 100%;
+    border: 2px solid var(--dark-green);
+    cursor: pointer;
+}
+
+/* =========== PROJECT PAGE STYLES =========== */
+
+.project-content {
+    max-width: 900px;
+    margin: 0 auto;
+    /* No padding on top/bottom, allow sections to control it */
+}
+
+/* Header section with hero image */
+.project-header {
+    text-align: center;
+    padding: 4rem 2rem 0; /* Pad top/sides, but not bottom */
+}
+
+.project-header h1 {
+    font-size: 3.5rem;
+    color: var(--dark-green);
+    margin-bottom: 0.5rem;
+}
+
+.project-subtitle {
+    font-size: 1.25rem;
+    color: var(--light-gray);
+    margin-bottom: 3rem;
+}
+
+.project-header img {
+    width: 100%; /* Full-width hero */
+    height: auto;
+    background-color: #eee;
+    margin-bottom: 4rem; /* Space below hero image */
+}
+
+/* Case study text sections */
+.project-details {
+    padding: 0 2rem;
+}
+
+.project-section {
+    margin-bottom: 3.5rem;
+}
+
+.project-section h2 {
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.project-section p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* A simple gallery for process/final shots */
+.project-image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-image-gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+/* Make project card links behave correctly */
+.project-card-link {
+    text-decoration: none;
+    color: inherit; /* Inherit the text color, don't turn blue */
+}
