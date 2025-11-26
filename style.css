@@ -2,7 +2,7 @@
 :root {
     --dark-green: #0a3622;  /* Your primary dark green */
     --text-color: #222222; /* A dark, soft black for text */
-    --background: #ffffff; /* A clean white background */
+    --background: #fdfdfd;
     --light-gray: #777777; /* For subtle text */
 }
 
@@ -557,4 +557,117 @@ nav ul.nav-open {
 .project-card-link {
     text-decoration: none;
     color: inherit; /* Inherit the text color, don't turn blue */
+}
+/* =========== CONTACT PAGE STYLES =========== */
+
+.contact-content {
+    max-width: 600px; /* Slightly narrower for better readability */
+    margin: 4rem auto;
+    padding: 3rem; /* More internal spacing */
+    
+    /* NEW: Card Effect */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft, modern shadow */
+    border: 1px solid #f0f0f0;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.contact-header h1 {
+    font-size: 2.5rem; /* Balanced size */
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.contact-header p {
+    font-size: 1.1rem;
+    color: var(--light-gray);
+    line-height: 1.6;
+}
+
+/* Make the email link pop */
+.contact-header p a {
+    color: var(--dark-green);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(10, 54, 34, 0.2);
+    transition: all 0.2s ease;
+}
+
+.contact-header p a:hover {
+    border-bottom-color: var(--dark-green);
+    background-color: rgba(10, 54, 34, 0.05); /* Subtle highlight on hover */
+}
+
+/* Form Styling */
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark-green);
+    letter-spacing: 0.5px;
+    text-transform: uppercase; /* clean, modern look */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem; /* Comfortable padding */
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-color);
+    background-color: #f9f9f9; /* Slightly off-white background for inputs */
+    border: 2px solid transparent; /* No border by default */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Input Focus State - Makes it feel "active" */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background-color: #fff;
+    border-color: var(--dark-green);
+    box-shadow: 0 0 0 4px rgba(10, 54, 34, 0.1); /* Glow effect */
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px; /* Ensure specific height for message box */
+}
+
+/* NEW: Solid Primary Button Style */
+.contact-form .cta-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: var(--dark-green); /* Solid color */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    margin-top: 1rem;
+}
+
+.contact-form .cta-button:hover {
+    background-color: #0d462c; /* Slightly lighter/different green on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 5px 15px rgba(10, 54, 34, 0.2);
+}
+
+.contact-form .cta-button:active {
+    transform: translateY(0);
 }
