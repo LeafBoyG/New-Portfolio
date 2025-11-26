@@ -1,12 +1,27 @@
-/* =========== GLOBAL STYLES (Minimalist) =========== */
+/* =========================================
+   1. VARIABLES & THEME (Organic Minimalist)
+   ========================================= */
 :root {
-    --dark-green: #0a3622;  /* Your primary dark green */
-    --text-color: #222222; /* A dark, soft black for text */
-    --background: #fdfdfd;
-    --light-gray: #777777; /* For subtle text */
+    /* Brand Colors */
+    --dark-green:   #0F3E29; /* Deep Forest Green */
+    --accent-green: #1A5D3F; /* Lighter Green (Hover) */
+    
+    /* Neutrals */
+    --text-main:    #1A1A1A; /* Soft Black */
+    --text-muted:   #555555; /* Dark Gray */
+    --border-color: #E5E5E5; /* Light Gray borders */
+
+    /* Surfaces */
+    --background:   #F9F9F9; /* Off-white page background */
+    --surface:      #FFFFFF; /* Pure white cards/nav */
+    
+    /* Shadows */
+    --shadow-soft:  0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* Basic reset */
+/* =========================================
+   2. RESET & BASE STYLES
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -16,101 +31,141 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--background);
-    color: var(--text-color);
-    line-height: 1.7; /* Increased line height for readability */
-    -webkit-font-smoothing: antialiased; /* Smoother text */
+    color: var(--text-main);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* =========== HEADER & NAVIGATION (Minimalist) =========== */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+/* =========================================
+   3. SHARED COMPONENTS (Buttons, Inputs)
+   ========================================= */
+
+/* Primary Button (Used in Hero & Forms) */
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* Default: Outline Style (Hero) */
+    border: 2px solid var(--dark-green);
+    color: var(--dark-green);
+    background: transparent;
+}
+
+.cta-button:hover {
+    background-color: var(--dark-green);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-main);
+    background-color: var(--surface);
+    border: 2px solid transparent; /* Cleaner look */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: #f0f0f0; /* Slight grey for contrast */
+}
+
+input:focus, textarea:focus {
+    background-color: var(--surface);
+    border-color: var(--dark-green);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(15, 62, 41, 0.1);
+}
+
+/* =========================================
+   4. HEADER & NAVIGATION
+   ========================================= */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 2.5rem; /* More padding for space */
+    padding: 2rem 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    /* REMOVED background-color and border-bottom for a cleaner look */
 }
 
 nav .logo {
     font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--dark-green); /* Logo is your main brand color */
+    font-weight: 800;
+    color: var(--dark-green);
+    letter-spacing: -0.5px;
 }
 
+/* Desktop Menu */
 nav ul {
     list-style: none;
     display: flex;
-}
-
-nav ul li {
-    margin-left: 2rem;
+    gap: 2rem;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: var(--text-color);
     font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 1rem;
 }
 
 nav ul li a:hover {
     color: var(--dark-green);
-    text-decoration: underline; /* A simple, clear hover state */
 }
 
-/* =========== HERO SECTION (Minimalist) =========== */
+/* =========================================
+   5. HERO SECTION
+   ========================================= */
 .hero {
-    /* REMOVED the dark green background for a clean, open feel */
-    background-color: var(--background);
-    color: var(--text-color);
-    padding: 6rem 2.5rem;
+    padding: 6rem 2rem;
     text-align: center;
-    max-width: 800px; /* Constrains text for readability */
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    color: var(--dark-green); /* The H1 is now the main color focus */
+    color: var(--dark-green);
     margin-bottom: 1.5rem;
+    line-height: 1.1;
 }
 
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 2.5rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    color: var(--text-muted);
 }
 
-.hero .cta-button {
-    /* CHANGED to an 'outline' button. Very minimalist. */
-    background-color: transparent;
-    color: var(--dark-green);
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 5px;
-    border: 2px solid var(--dark-green); /* The border provides the shape */
-    transition: all 0.3s ease;
-}
-
-.hero .cta-button:hover {
-    background-color: var(--dark-green);
-    color: var(--background); /* Text inverts to white on hover */
-}
-
-/* =========== PROJECT GALLERY (Minimalist) =========== */
+/* =========================================
+   6. PROJECT GALLERY (Home)
+   ========================================= */
 .project-gallery {
-    padding: 4rem 2.5rem;
+    padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .project-gallery h2 {
     font-size: 2.5rem;
-    margin-bottom: 2.5rem; /* More space */
+    margin-bottom: 3rem;
     color: var(--dark-green);
     text-align: center;
 }
@@ -118,61 +173,217 @@ nav ul li a:hover {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem; /* Increased gap for more breathing room */
+    gap: 3rem;
 }
 
 .project-card {
-    /* REMOVED background, border, shadow, and radius */
-    text-align: left;
-    transition: opacity 0.3s ease; /* Simpler hover effect */
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-card:hover {
-    opacity: 0.8;
-    /* REMOVED the 'transform' for a more subtle feel */
+    opacity: 0.9;
+    transform: translateY(-5px);
 }
 
 .project-card img {
     width: 100%;
-    height: 250px; /* Kept a fixed height for a uniform grid */
+    height: 250px;
     object-fit: cover;
-    background-color: #eee;
-    margin-bottom: 1rem; /* Space between image and text */
+    border-radius: 8px; /* Softens the images */
+    margin-bottom: 1.2rem;
+    box-shadow: var(--shadow-soft);
 }
 
 .project-card h3 {
     font-size: 1.25rem;
-    padding: 0; /* REMOVED padding */
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
 }
 
 .project-card p {
-    font-size: 1rem;
-    color: var(--light-gray);
-    padding: 0; /* REMOVED padding */
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
-/* =========== FOOTER (Minimalist) =========== */
+/* =========================================
+   7. ABOUT PAGE
+   ========================================= */
+.about-content {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.about-content h1 {
+    font-size: 3rem;
+    color: var(--dark-green);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-intro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.intro-text { flex: 2; min-width: 300px; }
+.intro-text p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+
+.intro-image { flex: 1; min-width: 250px; }
+.intro-image img { 
+    border-radius: 12px; 
+    box-shadow: var(--shadow-soft);
+}
+
+/* Skills Section */
+.skills-section {
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.skills-section h2 {
+    text-align: center;
+    color: var(--dark-green);
+    margin-bottom: 2.5rem;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.skill-category { flex-basis: 280px; }
+.skill-category h3 {
+    font-size: 1.25rem;
+    border-bottom: 2px solid var(--dark-green);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-category ul { list-style: none; }
+.skill-category ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 20px;
+    position: relative;
+}
+
+.skill-category ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--dark-green);
+    font-weight: bold;
+}
+
+/* =========================================
+   8. CONTACT PAGE (Card Style)
+   ========================================= */
+.contact-content {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 3rem;
+    
+    /* Card Style */
+    background-color: var(--surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
+}
+
+.contact-header { text-align: center; margin-bottom: 2rem; }
+.contact-header h1 { font-size: 2.5rem; color: var(--dark-green); margin-bottom: 0.5rem; }
+.contact-header p a {
+    color: var(--dark-green);
+    border-bottom: 1px solid var(--accent-green);
+}
+
+.contact-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark-green);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-form .form-group { margin-bottom: 1.5rem; }
+.contact-form textarea { resize: vertical; min-height: 150px; }
+
+/* Contact Specific Button Override (Solid) */
+.contact-form .cta-button {
+    width: 100%;
+    border: none;
+    background-color: var(--dark-green);
+    color: white;
+    margin-top: 1rem;
+}
+.contact-form .cta-button:hover {
+    background-color: var(--accent-green);
+}
+
+/* =========================================
+   9. PROJECT DETAIL PAGES
+   ========================================= */
+.project-header {
+    text-align: center;
+    padding: 4rem 2rem 0;
+    background-color: var(--background); /* Ensure consistent bg */
+}
+
+.project-header h1 { font-size: 3rem; color: var(--dark-green); margin-bottom: 0.5rem; }
+.project-subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem; }
+.project-header img { 
+    max-width: 1000px;
+    margin: 0 auto 4rem; 
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+}
+
+.project-details { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+.project-section { margin-bottom: 4rem; }
+.project-section h2 {
+    font-size: 2rem;
+    color: var(--dark-green);
+    margin-bottom: 1.5rem;
+}
+
+.project-image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.project-image-gallery img { border-radius: 6px; }
+
+/* =========================================
+   10. FOOTER
+   ========================================= */
 footer {
     text-align: center;
     padding: 3rem 2rem;
-    /* REMOVED dark background */
     background-color: var(--background);
-    color: var(--light-gray);
+    color: var(--text-muted);
+    font-size: 0.9rem;
     margin-top: 4rem;
-    border-top: 1px solid #eee; /* A very subtle separator */
+    border-top: 1px solid var(--border-color);
 }
 
-/* =========== MOBILE NAVIGATION STYLES =========== */
-
-/* 1. Style the hamburger button */
+/* =========================================
+   11. MOBILE NAVIGATION
+   ========================================= */
 .nav-toggle {
-    display: none; /* Hide it on desktop */
+    display: none;
     background: transparent;
     border: 0;
     cursor: pointer;
-    position: relative; /* For stacking order */
-    z-index: 1000; /* Makes sure it's on top */
+    z-index: 1000;
 }
 
 .hamburger {
@@ -184,8 +395,7 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.hamburger::before,
-.hamburger::after {
+.hamburger::before, .hamburger::after {
     content: '';
     position: absolute;
     width: 25px;
@@ -194,480 +404,45 @@ footer {
     left: 0;
     transition: all 0.3s ease;
 }
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
 
-.hamburger::before {
-    top: -8px; /* Position line above */
-}
-
-.hamburger::after {
-    bottom: -8px; /* Position line below */
-}
-
-/* 2. Style the navigation list for mobile */
-nav ul {
-    /* ... existing styles ... */
-    
-    /* NEW styles for the mobile overlay */
-    position: fixed;
-    background: var(--background);
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 900; /* Just behind the hamburger button */
-
-    /* Hide it by default */
-    transform: translateX(100%);
-    transition: transform 0.3s ease-out;
-
-    /* Change flex-direction to stack links */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-nav ul li {
-    margin-left: 0; /* Remove desktop margin */
-    margin: 1.5rem 0; /* Add vertical spacing */
-}
-
-nav ul li a {
-    font-size: 1.5rem; /* Make links bigger and easier to tap */
-}
-
-/* 3. The "nav-open" class (added by JavaScript) */
-/* This is what shows the menu */
-nav ul.nav-open {
-    transform: translateX(0); /* Slides menu into view */
-}
-
-/* These styles animate the hamburger icon to an "X" */
-.nav-toggle.nav-open .hamburger {
-    transform: rotate(45deg);
-}
-.nav-toggle.nav-open .hamburger::before {
-    transform: rotate(-90deg) translate(-8px);
-}
-.nav-toggle.nav-open .hamburger::after {
-    opacity: 0; /* Hide the bottom line */
-}
-
-
-/* 4. The Media Query (The "breakpoint") */
-/* This is what makes it all work */
+/* Mobile Menu Overlay */
 @media (max-width: 768px) {
-    /* When screen is 768px or less... */
-    
-    .nav-toggle {
-        display: block; /* Show the hamburger button */
-    }
+    .nav-toggle { display: block; }
 
     nav ul {
-        /* This is already styled for mobile above */
-        /* We just confirm the desktop links are hidden */
-        /* by not overriding the transform: translateX(100%) */
+        position: fixed;
+        background: var(--surface); /* PURE WHITE background */
+        left: 0; right: 0; top: 0; bottom: 0;
+        z-index: 900;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-out;
     }
 
-    /* We need to re-hide the desktop list on desktop */
-    nav ul {
-        /* This is a bit tricky, but it's the desktop state */
-        /* We'll override the mobile styles when the screen is WIDER */
-    }
-}
+    nav ul.nav-open { transform: translateX(0); }
+    nav ul li { margin: 1.5rem 0; }
+    nav ul li a { font-size: 1.5rem; }
 
-/* 5. Fix desktop nav */
-/* We need to override the mobile styles for desktop */
-@media (min-width: 769px) {
-    nav ul {
-        position: static; /* Not fixed */
-        transform: translateX(0); /* Always visible */
-        flex-direction: row; /* Back to horizontal */
-        background: transparent;
-        /* Re-apply desktop spacing */
+    /* Hamburger Animation */
+    .nav-toggle.nav-open .hamburger { transform: rotate(45deg); }
+    .nav-toggle.nav-open .hamburger::before { transform: rotate(-90deg) translate(-8px); }
+    .nav-toggle.nav-open .hamburger::after { opacity: 0; }
+
+    .hero {
+        padding: 3rem 1.5rem; /* Reduce spacing */
     }
 
-    nav ul li {
-        margin: 0;
-        margin-left: 2rem;
+    .hero h1 {
+        font-size: 2.2rem; /* Change from 3.5rem to 2.2rem */
+        line-height: 1.2;
+        word-wrap: break-word; /* Ensures long words don't break the layout */
     }
-    
-    nav ul li a {
-        font-size: 1rem; /* Back to original size */
+
+    .hero p {
+        font-size: 1rem; /* Slightly smaller body text */
     }
-}
-/* =========== ABOUT PAGE STYLES =========== */
-
-.about-content {
-    max-width: 900px; /* Constrains the content width */
-    margin: 4rem auto;
-    padding: 0 2rem;
-}
-
-.about-content h1 {
-    font-size: 3.5rem;
-    color: var(--dark-green);
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-/* Two-column layout for intro text + image */
-.about-intro {
-    display: flex;
-    flex-wrap: wrap; /* Lets it stack on mobile */
-    gap: 2rem;
-    align-items: flex-start;
-    margin-bottom: 4rem;
-}
-
-.intro-text {
-    flex: 2; /* Text takes up more space */
-    min-width: 300px; /* Prevents text from getting too squished */
-}
-
-.intro-text p {
-    font-size: 1.15rem;
-    margin-bottom: 1.5rem;
-}
-
-.intro-image {
-    flex: 1; /* Image takes up less space */
-    min-width: 250px;
-}
-
-.intro-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    background-color: #eee; /* Placeholder bg */
-}
-
-/* Skills Section */
-.skills-section {
-    text-align: center;
-    border-top: 1px solid #eee; /* Subtle separator */
-    padding-top: 3rem;
-}
-
-.skills-section h2 {
-    font-size: 2.5rem;
-    color: var(--dark-green);
-    margin-bottom: 2rem;
-}
-
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center; /* Center the categories */
-}
-
-.skill-category {
-    flex-basis: 300px; /* Each category can grow, but starts at 300px */
-    text-align: left;
-}
-
-.skill-category h3 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    border-bottom: 2px solid var(--dark-green);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.skill-category ul {
-    list-style: none; /* Removes bullets */
-    padding-left: 0;
-}
-
-.skill-category ul li {
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-    position: relative;
-    padding-left: 25px; /* Make room for our custom 'bullet' */
-}
-
-/* Custom bullet using your theme color */
-.skill-category ul li::before {
-    content: '›'; /* A simple chevron */
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--dark-green);
-    font-weight: 700;
-    font-size: 1.25rem;
-}
-
-/* =========== CONTACT PAGE STYLES =========== */
-
-.contact-content {
-    max-width: 700px; /* A good width for a form */
-    margin: 4rem auto;
-    padding: 0 2rem;
-}
-
-.contact-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.contact-header h1 {
-    font-size: 3.5rem;
-    color: var(--dark-green);
-    margin-bottom: 1rem;
-}
-
-.contact-header p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-}
-
-/* Link style within the contact text */
-.contact-header p a {
-    color: var(--dark-green);
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 2px solid var(--dark-green);
-    transition: all 0.3s ease;
-}
-
-.contact-header p a:hover {
-    background-color: var(--dark-green);
-    color: var(--background);
-    border-bottom-color: var(--background);
-}
-
-/* Form Styling */
-.contact-form .form-group {
-    margin-bottom: 1.5rem;
-}
-
-.contact-form label {
-    display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    font-family: inherit;
-    color: var(--text-color);
-    background-color: var(--background);
-    border: 2px solid #ddd; /* Subtle border */
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
-}
-
-.contact-form input[type="text"]:focus,
-.contact-form input[type="email"]:focus,
-.contact-form textarea:focus {
-    border-color: var(--dark-green); /* Highlight with theme color */
-    outline: none; /* Remove default blue glow */
-}
-
-.contact-form textarea {
-    resize: vertical; /* Allow vertical resize, not horizontal */
-}
-
-/* Re-using the .cta-button style from the hero section */
-.contact-form .cta-button {
-    /* We can re-use the .cta-button style from the hero */
-    /* Let's make sure it's full-width */
-    width: 100%;
-    border: 2px solid var(--dark-green);
-    cursor: pointer;
-}
-
-/* =========== PROJECT PAGE STYLES =========== */
-
-.project-content {
-    max-width: 900px;
-    margin: 0 auto;
-    /* No padding on top/bottom, allow sections to control it */
-}
-
-/* Header section with hero image */
-.project-header {
-    text-align: center;
-    padding: 4rem 2rem 0; /* Pad top/sides, but not bottom */
-}
-
-.project-header h1 {
-    font-size: 3.5rem;
-    color: var(--dark-green);
-    margin-bottom: 0.5rem;
-}
-
-.project-subtitle {
-    font-size: 1.25rem;
-    color: var(--light-gray);
-    margin-bottom: 3rem;
-}
-
-.project-header img {
-    width: 100%; /* Full-width hero */
-    height: auto;
-    background-color: #eee;
-    margin-bottom: 4rem; /* Space below hero image */
-}
-
-/* Case study text sections */
-.project-details {
-    padding: 0 2rem;
-}
-
-.project-section {
-    margin-bottom: 3.5rem;
-}
-
-.project-section h2 {
-    font-size: 2.5rem;
-    color: var(--dark-green);
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 0.5rem;
-}
-
-.project-section p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
-/* A simple gallery for process/final shots */
-.project-image-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.project-image-gallery img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    background-color: #eee;
-}
-
-/* Make project card links behave correctly */
-.project-card-link {
-    text-decoration: none;
-    color: inherit; /* Inherit the text color, don't turn blue */
-}
-/* =========== CONTACT PAGE STYLES =========== */
-
-.contact-content {
-    max-width: 600px; /* Slightly narrower for better readability */
-    margin: 4rem auto;
-    padding: 3rem; /* More internal spacing */
-    
-    /* NEW: Card Effect */
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft, modern shadow */
-    border: 1px solid #f0f0f0;
-}
-
-.contact-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
-
-.contact-header h1 {
-    font-size: 2.5rem; /* Balanced size */
-    color: var(--dark-green);
-    margin-bottom: 1rem;
-    font-weight: 800;
-}
-
-.contact-header p {
-    font-size: 1.1rem;
-    color: var(--light-gray);
-    line-height: 1.6;
-}
-
-/* Make the email link pop */
-.contact-header p a {
-    color: var(--dark-green);
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 2px solid rgba(10, 54, 34, 0.2);
-    transition: all 0.2s ease;
-}
-
-.contact-header p a:hover {
-    border-bottom-color: var(--dark-green);
-    background-color: rgba(10, 54, 34, 0.05); /* Subtle highlight on hover */
-}
-
-/* Form Styling */
-.contact-form .form-group {
-    margin-bottom: 1.5rem;
-}
-
-.contact-form label {
-    display: block;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--dark-green);
-    letter-spacing: 0.5px;
-    text-transform: uppercase; /* clean, modern look */
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 1rem; /* Comfortable padding */
-    font-size: 1rem;
-    font-family: inherit;
-    color: var(--text-color);
-    background-color: #f9f9f9; /* Slightly off-white background for inputs */
-    border: 2px solid transparent; /* No border by default */
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-/* Input Focus State - Makes it feel "active" */
-.contact-form input:focus,
-.contact-form textarea:focus {
-    background-color: #fff;
-    border-color: var(--dark-green);
-    box-shadow: 0 0 0 4px rgba(10, 54, 34, 0.1); /* Glow effect */
-    outline: none;
-}
-
-.contact-form textarea {
-    resize: vertical;
-    min-height: 150px; /* Ensure specific height for message box */
-}
-
-/* NEW: Solid Primary Button Style */
-.contact-form .cta-button {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    background-color: var(--dark-green); /* Solid color */
-    color: #ffffff; /* White text */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    margin-top: 1rem;
-}
-
-.contact-form .cta-button:hover {
-    background-color: #0d462c; /* Slightly lighter/different green on hover */
-    transform: translateY(-2px); /* Subtle lift effect */
-    box-shadow: 0 5px 15px rgba(10, 54, 34, 0.2);
-}
-
-.contact-form .cta-button:active {
-    transform: translateY(0);
 }
