@@ -446,3 +446,94 @@ footer {
         font-size: 1rem; /* Slightly smaller body text */
     }
 }
+/* =========================================
+   13. MASONRY GALLERY (For Photography)
+   ========================================= */
+.masonry-gallery {
+    column-count: 3; /* creates the masonry columns */
+    column-gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    cursor: zoom-in;
+    /* Reset aspect-ratio for masonry so tall photos look tall */
+    aspect-ratio: auto; 
+}
+
+.gallery-item:hover img {
+    transform: translateY(-5px);
+    filter: brightness(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Mobile Responsive Masonry */
+@media (max-width: 900px) {
+    .masonry-gallery { column-count: 2; }
+}
+@media (max-width: 600px) {
+    .masonry-gallery { column-count: 1; }
+}
+
+/* =========================================
+   14. LIGHTBOX STYLES
+   ========================================= */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Dark cinematic backdrop */
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border: 2px solid #fff;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active img {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 100;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--accent-green);
+}

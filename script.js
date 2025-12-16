@@ -17,4 +17,32 @@ links.forEach(link => {
         navLinks.classList.remove('nav-open');
         navToggle.classList.remove('nav-open');
     });
+
+    // --- Lightbox Functionality ---
+
+function openLightbox(element) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    if(lightbox && lightboxImg) {
+        // Set the lightbox image source to the clicked image source
+        lightboxImg.src = element.src;
+        
+        // Show the lightbox
+        lightbox.classList.add('active');
+        
+        // Prevent scrolling on the body while lightbox is open
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    
+    if(lightbox) {
+        lightbox.classList.remove('active');
+        // Re-enable scrolling
+        document.body.style.overflow = 'auto';
+    }
+}
 });
