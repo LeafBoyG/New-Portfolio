@@ -537,3 +537,42 @@ footer {
 .close-btn:hover {
     color: var(--accent-green);
 }
+
+/* =========================================
+   15. MANUAL COLUMNS (No Gaps)
+   ========================================= */
+.masonry-wrapper {
+    display: flex;
+    gap: 20px; /* Space between the 3 big columns */
+    padding: 20px 0;
+}
+
+.masonry-column {
+    flex: 1; /* Each column is equal width */
+    display: flex;
+    flex-direction: column; /* Images stack vertically */
+    gap: 20px; /* Space between images in the stack */
+}
+
+.masonry-column img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    cursor: zoom-in;
+    /* This ensures photos keep their natural shape (No cropping!) */
+    height: auto; 
+}
+
+.masonry-column img:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.05);
+}
+
+/* Responsive: Stack columns on mobile */
+@media (max-width: 600px) {
+    .masonry-wrapper {
+        flex-direction: column;
+    }
+}
