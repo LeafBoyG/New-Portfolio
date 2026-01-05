@@ -35,7 +35,7 @@ document.querySelectorAll('.reveal').forEach((el) => {
 });
 
 
-// --- 3. Advanced Slider Lightbox Logic (Mobile Fixed) ---
+// --- 3. Advanced Slider Lightbox Logic (Mobile Drag Fix) ---
 
 const lightbox = document.getElementById('lightbox');
 const lbImgBefore = document.getElementById('lb-img-before');
@@ -59,38 +59,43 @@ function openSliderLightbox(element) {
     }
 }
 
-// Function to update the mask (Shared by Mouse and Touch)
-function updateSlider(val) {
-    const insetAmount = 100 - val;
+// Helper: Visual update logic
+function updateSliderPosition(percentage) {
+    // 1. Clamp value between 0 and 100
+    percentage = Math.max(0, Math.min(100, percentage));
+    
+    // 2. Use requestAnimationFrame for 60fps smoothness
     requestAnimationFrame(() => {
-        lbImgBefore.style.clipPath = `inset(0 ${insetAmount}% 0 0)`;
+        // Update the mask (Reveal/Hide image)
+        // Note: inset(top right bottom left) -> we change 'right'
+        lbImgBefore.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
     });
+
+    // 3. Keep the invisible input in sync (optional, but good practice)
+    if(lbRangeInput) lbRangeInput.value = percentage;
 }
 
 if (lbRangeInput && lbImgBefore) {
-    // 1. Mouse Interaction (Desktop)
+    
+    // --- DESKTOP (Mouse) ---
     lbRangeInput.addEventListener('input', (e) => {
-        updateSlider(e.target.value);
+        updateSliderPosition(e.target.value);
     });
 
-    // 2. Touch Interaction (Mobile) - NEW!
+    // --- MOBILE (Touch) ---
+    // We attach to 'touchmove' to handle the dragging manually
     lbRangeInput.addEventListener('touchmove', (e) => {
-        // We need to calculate where the finger is relative to the slider width
+        // STOP the page from scrolling while dragging!
+        e.preventDefault(); 
+        
         const sliderRect = lbRangeInput.getBoundingClientRect();
         const touchX = e.touches[0].clientX;
         
-        // Calculate percentage (0 to 100)
+        // Calculate the percentage based on finger position relative to the box
         let percent = ((touchX - sliderRect.left) / sliderRect.width) * 100;
         
-        // Clamp between 0 and 100
-        percent = Math.max(0, Math.min(100, percent));
-        
-        // Update the visual slider
-        updateSlider(percent);
-        
-        // Update the invisible input value (so it stays in sync)
-        lbRangeInput.value = percent;
-    }, { passive: true }); // 'passive: true' makes scroll performance better
+        updateSliderPosition(percent);
+    }, { passive: false }); // 'passive: false' allows us to use preventDefault()
 }
 
 function closeLightbox() {
@@ -102,6 +107,7 @@ function closeLightbox() {
 
 if(lightbox) {
     lightbox.addEventListener('click', (e) => {
+        // Close if clicking the background (but not the slider itself)
         if (e.target === lightbox) {
             closeLightbox();
         }
