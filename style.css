@@ -898,6 +898,10 @@ footer {
     opacity: 0;
     margin: 0;
     cursor: col-resize;
+
+
+    touch-action: none; /* Tells browser: "Don't scroll when I touch this" */
+    -webkit-tap-highlight-color: transparent; /* Removes the blue flash when tapping */
 }
 
 /* Labels */
@@ -932,4 +936,37 @@ footer {
     line-height: 45px;
     text-align: center;
     border-radius: 50%;
+}
+
+/* =========================================
+   MOBILE LIGHTBOX TWEAKS
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Make the container fill more of the screen */
+    .lightbox-slider-wrapper {
+        width: 100%; /* Go full width */
+        border-radius: 0; /* Square edges look cleaner on full width */
+    }
+    
+    /* 2. Move Close Button down slightly so it's easier to reach */
+    .close-btn {
+        top: 15px;
+        right: 15px;
+        background: rgba(0,0,0,0.6); /* Darker background for contrast */
+        width: 44px; /* Standard Apple tap target size */
+        height: 44px;
+        line-height: 40px;
+        font-size: 30px;
+    }
+
+    /* 3. Make the text labels slightly larger/readable */
+    .lb-label {
+        font-size: 0.8rem;
+        top: 15px;
+        background: rgba(0,0,0,0.3); /* Legibility on busy photos */
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+    .lb-label-before { left: 15px; }
+    .lb-label-after { right: 15px; }
 }
