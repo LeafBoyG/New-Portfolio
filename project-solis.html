@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solis App - Alfred Duckworth</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
         <nav>
             <div class="logo">ALFRED DUCKWORTH</div>
-            <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
+            
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Development</a></li>
-                <li><a href="photography.html">Photography</a></li>
+                <li><a href="projects.html">Development</a></li> 
+                <li><a href="photography.html">Photography</a></li> 
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
             </ul>
@@ -25,13 +33,13 @@
 
     <main class="project-content">
 
-        <section class="project-header">
+        <section class="project-header reveal">
             <h1>Solis</h1>
             <p class="project-subtitle">Full Stack Web App (Python/Flask) & Product Design</p>
             <img src="images/solis-hero.png" alt="Hero mockup of the Solis dashboard running on a laptop">
         </section>
 
-        <section class="project-details">
+        <section class="project-details reveal">
             <div class="project-section">
                 <h2>The Problem</h2>
                 <p>Personal organization apps are often fragmented. A user might need one app for habit tracking, another for gym logs, and a third for shared family chores. This context switching creates friction. I wanted to build <strong>Solis</strong>: a unified "life OS" that brings personal growth and household management into a single, cohesive interface.</p>
@@ -39,7 +47,6 @@
 
             <div class="project-section">
                 <h2>The Tech Stack & Design</h2>
-               <!-- <p>This wasn't just a design concept—I built the entire application from scratch.</p> -->
                 <ul>
                     <li><strong>Backend:</strong> Python (Flask) using Blueprints for modular architecture and SQLAlchemy for complex database relationships (Users, Households, Habits).</li>
                     <li><strong>Frontend:</strong> HTML5, CSS3 (CSS Grid/Flexbox), and Vanilla JavaScript for asynchronous updates (Fetch API).</li>
@@ -81,6 +88,16 @@
     <footer>
         <p>© 2025 Alfred Duckworth. All rights reserved.</p>
     </footer>
+
+    <footer>
+    <div class="social-links">
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">LinkedIn</a>
+        <a href="#" target="_blank">GitHub</a>
+        <a href="mailto:your@email.com">Email</a>
+    </div>
+    <p style="opacity: 0.6; font-size: 0.85rem;">© 2025 Alfred Duckworth</p>
+</footer>
 
     <script src="script.js"></script>
 </body>

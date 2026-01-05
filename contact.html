@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Alfred Duckworth</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-         <nav>
+        <nav>
             <div class="logo">ALFRED DUCKWORTH</div>
             <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
             <ul>
@@ -23,35 +27,61 @@
         </nav>
     </header>
 
-    <main class="contact-content">
-        <div class="contact-header">
-            <h1>Get in Touch</h1>
-            <p>Have a project in mind, a job opportunity, or just want to say hello? I'd love to hear from you. Fill out the form below or email me directly at <a href="mailto:your.email@ex.com">alfredworkemail@gmail.com</a>.</p>
-        </div>
+    <main class="contact-content reveal">
         
-        <form class="contact-form" action="#" method="POST">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="6" required></textarea>
-            </div>
-            
-            <button type="submit" class="cta-button">Send Message</button>
-        </form>
+        <div class="contact-container" style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Let's Create.</h1>
+            <p style="color: var(--text-muted); margin-bottom: 3rem;">I am currently open for new projects. Tell me about your idea.</p>
+        
+            <form class="contact-form" action="#" method="POST" style="text-align: left;">
+                
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <label style="display: block; margin-bottom: 1rem;">I am interested in:</label>
+                    <div class="checkbox-group" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="interest" value="web-design">
+                            <span>Web Design</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="interest" value="photography">
+                            <span>Photography</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="interest" value="collaboration">
+                            <span>Collaboration</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="How should I address you?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell me a bit about the project..." required></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button" style="width: 100%;">Send Request</button>
+            </form>
+        </div>
 
     </main>
 
     <footer>
-        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="mailto:your@email.com">Email</a>
+        </div>
+        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">© 2025 Alfred Duckworth.</p>
     </footer>
 
     <script src="script.js"></script>

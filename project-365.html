@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>365 Days of Photography - Alfred Duckworth</title>
+    <title>365 Days - Alfred Duckworth</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -15,12 +16,16 @@
     <header>
         <nav>
             <div class="logo">ALFRED DUCKWORTH</div>
-            <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
+            
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Development</a></li>
-                <li><a href="photography.html">Photography</a></li>
+                <li><a href="projects.html">Development</a></li> 
+                <li><a href="photography.html">Photography</a></li> 
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
             </ul>
@@ -30,39 +35,45 @@
     <main class="project-content">
 
         <section class="project-header reveal">
-            <h1>Photography Portfolio</h1>
-            <p class="project-subtitle">Photography</p>
+            <h1>365 Days of Photography</h1>
+            <p class="project-subtitle">A Daily Practice in Observation</p>
         </section>
 
         <section class="project-details reveal">
-            <div class="masonry-gallery">
-                
-                <div class="gallery-item">
-                    <img src="images/photos/Tram.png" alt="Green Tram" onclick="openLightbox(this)">
+            
+            <div class="masonry-wrapper">
+
+                <div class="masonry-column">
+                    <img src="images/photos/Tram.png" class="reveal" alt="Green Tram in Motion" onclick="openLightbox(this)">
+                    
+                    </div>
+
+                <div class="masonry-column">
+                    <img src="images/Candle.png" class="reveal" alt="Candlelight in the Dark" onclick="openLightbox(this)">
                 </div>
 
-                <div class="gallery-item">
-                    <img src="images/photos/Candle.png" alt="Candle flame in dark" onclick="openLightbox(this)">
+                <div class="masonry-column">
+                    <img src="images/tate ceiling.png" class="reveal" alt="Tate Modern Ceiling Architecture" onclick="openLightbox(this)">
                 </div>
 
-                <div class="gallery-item">
-                    <img src="images/photos/Fiat.png" alt="Yellow Fiat car detail" onclick="openLightbox(this)">
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="images/photos/tate ceiling.png" alt="Tate Modern Ceiling" onclick="openLightbox(this)">
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="images/photos/Cool Car LIghts.png" alt="Long exposure car lights" onclick="openLightbox(this)">
-                </div>
-                
-                  <div class="gallery-item">
-                    <img src="images/photos/Old Car.png" alt="Long exposure car lights" onclick="openLightbox(this)">
-                </div>
+            </div>
 
-                 <div class="gallery-item">
-                    <img src="images/photos/MAXI.png" alt="Long exposure car lights" onclick="openLightbox(this)">
+        </section>
+
+        <section class="gear-section reveal">
+            <h2>The Gear</h2>
+            <div class="gear-grid">
+                <div class="gear-item">
+                    <h3>Camera</h3>
+                    <p>Olympus E-M10 IV</p>
+                </div>
+                <div class="gear-item">
+                    <h3>Lens</h3>
+                    <p></p>
+                </div>
+                <div class="gear-item">
+                    <h3>Editing</h3>
+                    <p>Affinity Photo</p>
                 </div>
             </div>
         </section>
@@ -72,10 +83,17 @@
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-btn">&times;</span>
         <img id="lightbox-img">
+        <p id="lightbox-caption"></p> 
     </div>
 
     <footer>
-        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="mailto:your@email.com">Email</a>
+        </div>
+        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">© 2025 Alfred Duckworth. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

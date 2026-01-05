@@ -576,3 +576,360 @@ footer {
         flex-direction: column;
     }
 }
+/* =========================================
+   16. NEW FEATURES (Captions & Gear)
+   ========================================= */
+
+/* Lightbox Caption Styling */
+#lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Playfair Display', serif; /* Cinematic font */
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    pointer-events: none; /* Lets clicks pass through */
+}
+
+/* "The Gear" Section */
+.gear-section {
+    max-width: 800px;
+    margin: 6rem auto 4rem;
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid #ddd;
+}
+
+.gear-section h2 {
+    font-size: 2rem;
+    color: var(--dark-green);
+    margin-bottom: 2rem;
+}
+
+.gear-grid {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.gear-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.gear-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Mobile Tweak */
+@media (max-width: 600px) {
+    .gear-grid { gap: 2rem; }
+    #lightbox-caption { font-size: 1.1rem; bottom: 20px; padding: 0 20px; }
+}
+
+
+
+
+
+
+
+
+
+
+.masonry-wrapper:hover img {
+    opacity: 0.4;
+    filter: grayscale(100%); /* Optional: turns others B&W */
+    transform: scale(0.98);
+}
+
+
+.masonry-wrapper .masonry-column img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    z-index: 2; 
+}
+
+/* =========================================
+   MODERN MOTION SYSTEM
+   ========================================= */
+:root {
+    /* "Ease Out Expo" - The 'Standard' for modern UI motion */
+    /* Starts fast, lands gently. Feels premium. */
+    --ease-cinematic: cubic-bezier(0.19, 1, 0.22, 1);
+    
+    --anim-duration: 1.2s; /* Slower, more elegant duration */
+}
+
+html {
+    scroll-behavior: smooth; /* Native smooth scrolling for anchor links */
+}
+
+/* Base Reveal Class - The starting state */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98); /* Slight shrink + push down */
+    transition: 
+        opacity var(--anim-duration) var(--ease-cinematic),
+        transform var(--anim-duration) var(--ease-cinematic);
+    will-change: opacity, transform; /* Performance hint for browser */
+}
+
+/* Active State - When visible */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Staggered Delays for Grids */
+/* This makes the 2nd and 3rd items wait slightly before appearing */
+.masonry-column .reveal:nth-child(2) { transition-delay: 0.1s; }
+.masonry-column .reveal:nth-child(3) { transition-delay: 0.2s; }
+.masonry-column .reveal:nth-child(4) { transition-delay: 0.3s; }
+.project-grid a:nth-child(2) .project-card { transition-delay: 0.2s; }
+
+/* Hero Text Animation - Fade up on load */
+.hero h1 {
+    animation: fadeUp 1.2s var(--ease-cinematic) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hero p {
+    animation: fadeUp 1.2s var(--ease-cinematic) 0.2s forwards; /* 0.2s delay */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modern Hover Effect (Magnetic Feel) */
+.gallery-item img, .project-card {
+    transition: transform 0.6s var(--ease-cinematic), filter 0.6s var(--ease-cinematic);
+}
+
+/* Footer Socials */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 4rem 2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.social-links a {
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    position: relative;
+}
+
+.social-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: var(--dark-green);
+    transition: width 0.3s;
+    margin-top: 2px;
+}
+
+.social-links a:hover {
+    color: var(--dark-green);
+}
+
+.social-links a:hover::after {
+    width: 100%;
+}
+
+/* =========================================
+   17. NEW "INSPIRATION" STYLES
+   ========================================= */
+
+/* The "Link Arrow" style */
+.cta-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--dark-green);
+}
+
+/* Custom Checkboxes (Aling Wen Style) */
+.custom-checkbox input {
+    display: none; /* Hide default box */
+}
+
+.custom-checkbox span {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+/* When checked, turn green */
+.custom-checkbox input:checked + span {
+    background-color: var(--dark-green);
+    color: white;
+    border-color: var(--dark-green);
+}
+
+.custom-checkbox span:hover {
+    border-color: var(--dark-green);
+}
+
+/* Mobile Tweak for Hero */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem !important; }
+    .services-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+}
+
+/* =========================================
+   18. ADVANCED SLIDER LIGHTBOX (Fixed)
+   ========================================= */
+
+/* --- The Lightbox Container --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-cinematic);
+    padding: 20px;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* --- The Slider Component --- */
+.lightbox-slider-wrapper {
+    position: relative;
+    /* Allow it to grow, but fit within screen */
+    width: 90vw;
+    height: 85vh; 
+    
+    /* Center contents */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transform: scale(0.95);
+    transition: transform 0.4s var(--ease-cinematic);
+}
+
+.lightbox.active .lightbox-slider-wrapper {
+    transform: scale(1);
+}
+
+/* BOTH Images share these styles to align perfectly */
+.lb-img-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* KEY: This forces them to fit the box without stretching */
+    object-fit: contain; 
+    
+    pointer-events: none;
+    user-select: none;
+}
+
+/* The "Before/Raw" Image (Top Layer) */
+.lb-img-before {
+    z-index: 2;
+    /* We hide the overflow using this instead of width */
+    clip-path: inset(0 50% 0 0); 
+    border-right: 2px solid rgba(255, 255, 255, 0.8); /* The divider line */
+    will-change: clip-path;
+}
+
+/* The "After/Edit" Image (Bottom Layer) */
+.lb-img-after {
+    z-index: 1;
+}
+
+/* The invisible slider handle */
+.lb-comparison-range {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
+    margin: 0;
+    cursor: col-resize;
+}
+
+/* Labels */
+.lb-label {
+    position: absolute;
+    top: 20px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,1);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.8;
+}
+.lb-label-before { left: 25px; }
+.lb-label-after { right: 25px; }
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 2001;
+    background: rgba(0,0,0,0.3);
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+}

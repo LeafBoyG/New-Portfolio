@@ -13,86 +13,96 @@
 <body>
 
     <header>
-<nav>
-    <div class="logo">ALFRED DUCKWORTH</div>
-    
-    <button class="nav-toggle" aria-label="toggle navigation">
-        <span class="hamburger"></span>
-    </button>
-    
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Development</a></li> <li><a href="photography.html">Photography</a></li> <li><a href="contact.html">Contact</a></li>
-        <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
-    </ul>
-</nav>
+        <nav>
+            <div class="logo">ALFRED DUCKWORTH</div>
+            <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Development</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="project-content">
 
         <section class="project-header reveal">
             <h1>Automotive</h1>
-            <p class="project-subtitle">Speed, Structure, and Color</p>
+            <p class="project-subtitle">Speed, Structure, and Color. <br><span style="font-size: 0.9rem; opacity: 0.7;">(Click any image to compare Raw vs. Edit)</span></p>
         </section>
 
-<section class="project-details reveal">
-    
-    <div class="masonry-wrapper">
+        <section class="project-details reveal">
+            <div class="masonry-wrapper">
 
-        <div class="masonry-column">
-            <img src="images/photos/Fiat.png" alt="Yellow Fiat" onclick="openLightbox(this)">
-            
-            <img src="images/photos/Cool Car LIghts.png" alt="Long Exposure Traffic" onclick="openLightbox(this)">
-            
-            <img src="images/photos/Untitled.png" alt="F1 Race Car" onclick="openLightbox(this)">
-            
-            <img src="images/photos/MAXI.png" alt="Yellow Maxi Grille" onclick="openLightbox(this)">
-        </div>
-
-        <div class="masonry-column">
-            <img src="images/photos/Lincoln.png" alt="Green Lincoln Continental" onclick="openLightbox(this)">
-            
-            <img src="images/photos/Cobra.png" alt="Blue Cobra Headlight" onclick="openLightbox(this)">
-            
-            <img src="images/photos/Volkswagen Beetle.png" alt="Black and White Beetle" onclick="openLightbox(this)">
-            
-            <img src="images/photos/Mazda.png" alt="Blue Mazda Miata" onclick="openLightbox(this)">
-        </div>
-
-        <div class="masonry-column">
-            <img src="images/photos/Old Car.png" alt="Beige Classic Car" onclick="openLightbox(this)">
-            
-            <img src="images/photos/Moustachtang.png" alt="Red Mustang Rear" onclick="openLightbox(this)">
-            
-            <img src="images/photos/FordEscort.png" alt="Black Ford Escort" onclick="openLightbox(this)">
-            
-            <img src="images/photos/Beamer.png" alt="White BMW Hood" onclick="openLightbox(this)">
-        </div>
-
-    </div>
-
-</section>
-
-            <!--    <div class="gallery-item">
-                     <div style="background:#eee; height:300px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#999;">
-                        More Coming Soon
-                    </div>
+                <div class="masonry-column">
+                    <img src="photography/automotive/Edit/Fiat.png" data-raw-src="photography/automotive/Raw/Fiat.jpg" class="reveal" alt="Yellow Fiat" onclick="openSliderLightbox(this)">
+                    <img src="photography/automotive/Edit/Cool Car LIghts.png" data-raw-src="photography/automotive/Raw/Cool Car LIghts.png" class="reveal" alt="Long Exposure Traffic" onclick="openSliderLightbox(this)">
+                    <img src="photography/automotive/Edit/Untitled.png" data-raw-src="photography/automotive/Raw/F1Car.png" class="reveal" alt="F1 Race Car" onclick="openSliderLightbox(this)">
+                    <img src="photography/automotive/Edit/MAXI.png" data-raw-src="photography/automotive/Raw/MAXI.png" class="reveal" alt="Yellow Maxi Grille" onclick="openSliderLightbox(this)">
                 </div>
-                -->
 
+                <div class="masonry-column">
+                    <img src="photography/automotive/Edit/Lincoln.png" data-raw-src="photography/automotive/Raw/Lincoln.png" class="reveal" alt="Green Lincoln Continental" onclick="openSliderLightbox(this)">
+                    <img src="photography/automotive/Edit/Cobra.png" data-raw-src="photography/automotive/Raw/Cobra.png" class="reveal" alt="Blue Cobra Headlight" onclick="openSliderLightbox(this)">
+                    <img src="photography/automotive/Edit/Volkswagen Beetle.png" data-raw-src="photography/automotive/Raw/Volkswagen Beetle.png" class="reveal" alt="Black and White Beetle" onclick="openSliderLightbox(this)">
+                    <img src="photography/automotive/Edit/Mazda.png" data-raw-src="photography/automotive/Raw/Mazda.png" class="reveal" alt="Blue Mazda Miata" onclick="openSliderLightbox(this)">
+                </div>
+
+                <div class="masonry-column">
+                    <img src="photography/automotive/Edit/Old Car.png" data-raw-src="photography/automotive/Raw/Old Car.png" class="reveal" alt="Beige Classic Car" onclick="openSliderLightbox(this)">
+                    <img src="photography/automotive/Edit/Moustachtang.png" data-raw-src="photography/automotive/Raw/Moustachtang.png" class="reveal" alt="Red Mustang Rear" onclick="openSliderLightbox(this)">
+                    <img src="photography/automotive/Edit/FordEscort.png" data-raw-src="photography/automotive/Raw/FordEscort.png" class="reveal" alt="Black Ford Escort" onclick="openSliderLightbox(this)">
+                    <img src="photography/automotive/Edit/Beamer.png" data-raw-src="photography/automotive/Raw/Beamer.png" class="reveal" alt="White BMW Hood" onclick="openSliderLightbox(this)">
+                </div>
+
+            </div>
+        </section>
+
+        <section class="gear-section reveal">
+            <h2>The Toolkit</h2>
+            <div class="gear-grid">
+                <div class="gear-item">
+                    <h3>Camera</h3>
+                    <p>Fujifilm X-T5</p>
+                </div>
+                <div class="gear-item">
+                    <h3>Prime Lens</h3>
+                    <p>35mm f/1.4</p>
+                </div>
+                <div class="gear-item">
+                    <h3>Editing</h3>
+                    <p>Lightroom & Photoshop</p>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-btn">&times;</span>
-        <img id="lightbox-img">
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        
+   <div class="lightbox-slider-wrapper">
+     <img id="lb-img-before" class="lb-img-layer lb-img-before" src="" alt="Raw Version">
+    <img id="lb-img-after" class="lb-img-layer lb-img-after" src="" alt="Edited Version">
+    
+    <span class="lb-label lb-label-before">RAW</span>
+    <span class="lb-label lb-label-after">EDIT</span>
+
+    <input type="range" min="0" max="100" value="50" class="lb-comparison-range" id="lb-comparison-range">
+</div>
     </div>
 
     <footer>
-        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="mailto:your@email.com">Email</a>
+        </div>
+        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">© 2025 Alfred Duckworth. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
