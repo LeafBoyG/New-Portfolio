@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solis App - Alfred Duckworth</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22Arial, sans-serif%22 font-weight=%22bold%22 fill=%22black%22>A</text></svg>">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,7 @@
     <header>
         <nav>
             <div class="logo">ALFRED DUCKWORTH</div>
-            
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
-            
+            <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -35,69 +31,71 @@
 
         <section class="project-header reveal">
             <h1>Solis</h1>
-            <p class="project-subtitle">Full Stack Web App (Python/Flask) & Product Design</p>
-            <img src="images/solis-hero.png" alt="Hero mockup of the Solis dashboard running on a laptop">
+            <p class="project-subtitle">Full Stack Web App & Product Design</p>
         </section>
 
-        <section class="project-details reveal">
-            <div class="project-section">
-                <h2>The Problem</h2>
-                <p>Personal organization apps are often fragmented. A user might need one app for habit tracking, another for gym logs, and a third for shared family chores. This context switching creates friction. I wanted to build <strong>Solis</strong>: a unified "life OS" that brings personal growth and household management into a single, cohesive interface.</p>
+        <section class="case-study-meta reveal">
+            <div class="meta-item">
+                <h4>Role</h4>
+                <p>Full Stack Dev</p>
+            </div>
+            <div class="meta-item">
+                <h4>Year</h4>
+                <p>2024</p>
+            </div>
+            <div class="meta-item">
+                <h4>Tech Stack</h4>
+                <p>Python (Flask), JS, SQL</p>
+            </div>
+        </section>
+
+        <section class="reveal" style="margin-bottom: 4rem;">
+            <img src="images/solis-hero.png" style="width: 100%; border-radius: 4px;" alt="Solis Dashboard Hero">
+        </section>
+
+        <section class="case-study-content reveal">
+            
+            <h2>The Problem</h2>
+            <p>
+                Personal organization apps are often fragmented. A user might need one app for habit tracking, another for gym logs, and a third for shared family chores. This context switching creates friction. I wanted to build <strong>Solis</strong>: a unified "life OS" that brings personal growth and household management into a single, cohesive interface.
+            </p>
+
+            <h2>The Solution</h2>
+            <p>
+                Solis is a dashboard that simplifies complex data into digestible graphs. I focused heavily on high-contrast visuals for readability in bright environments and a responsive layout for mobile checking.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0;">
+                <img src="images/solis-screen-dashboard.png" style="width: 100%; border-radius: 4px;" alt="Dashboard">
+                <img src="images/solis-screen-fitness.png" style="width: 100%; border-radius: 4px;" alt="Fitness">
             </div>
 
-            <div class="project-section">
-                <h2>The Tech Stack & Design</h2>
-                <ul>
-                    <li><strong>Backend:</strong> Python (Flask) using Blueprints for modular architecture and SQLAlchemy for complex database relationships (Users, Households, Habits).</li>
-                    <li><strong>Frontend:</strong> HTML5, CSS3 (CSS Grid/Flexbox), and Vanilla JavaScript for asynchronous updates (Fetch API).</li>
-                    <li><strong>Database:</strong> SQLite with relational modeling for shared household data.</li>
-                </ul>
-                
-                <div class="project-image-gallery">
-                    <img src="images/solis-code-snippet.png" alt="Screenshot of the Python backend code structure">
-                    <img src="images/solis-style-guide.png" alt="The color palette (Dark Mode #1a1a2e) and typography">
-                </div>
+            <h2>Key Features</h2>
+            <p>The application handles complex logic behind a simple UI:</p>
+            <ul style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">
+                <li style="margin-bottom: 0.5rem;">— <strong>Household Sync:</strong> Users can invite family members to join their "Household," enabling a shared Shopping List and Chore Chart.</li>
+                <li style="margin-bottom: 0.5rem;">— <strong>Fitness Hub:</strong> Custom workout routines linked directly to habit completion logic.</li>
+                <li style="margin-bottom: 0.5rem;">— <strong>Smart Journaling:</strong> A "Win of the Day" prompt and daily reflection that saves to a history database.</li>
+            </ul>
 
-                <p><strong>Design Philosophy:</strong> I chose a deep "Dark Mode" aesthetic (<code>#1a1a2e</code>) paired with a vibrant purple accent (<code>#8a4fff</code>) to reduce eye strain during early morning or late night use. The interface relies on a card-based grid layout that adapts seamlessly from desktop to mobile.</p>
-            </div>
+            <h2>Outcome</h2>
+            <p>
+                Solis is a fully functional web application. Building it enhanced my ability to think systematically—understanding how a button on the frontend interacts with the database model on the backend. It bridges the gap between visual design and software engineering.
+            </p>
 
-            <div class="project-section">
-                <h2>Key Features</h2>
-                <p>The application handles complex logic behind a simple UI:</p>
-                <ul>
-                    <li><strong>Household Sync:</strong> Users can invite family members to join their "Household," enabling a shared Shopping List and Chore Chart.</li>
-                    <li><strong>Fitness Hub:</strong> Custom workout routines linked directly to habit completion logic.</li>
-                    <li><strong>Smart Journaling:</strong> A "Win of the Day" prompt and daily reflection that saves to a history database.</li>
-                </ul>
-
-                <div class="project-image-gallery">
-                    <img src="images/solis-screen-dashboard.png" alt="The main dashboard showing habits and wins">
-                    <img src="images/solis-screen-fitness.png" alt="The fitness tracking module">
-                    <img src="images/solis-screen-journal.png" alt="The journal chart">
-                </div>
-            </div>
-
-            <div class="project-section">
-                <h2>Outcome</h2>
-                <p>Solis is a fully functional web application. Building it enhanced my ability to think systematically—understanding how a button on the frontend interacts with the database model on the backend. It bridges the gap between visual design and software engineering.</p>
-            </div>
         </section>
 
     </main>
 
     <footer>
-        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="mailto:your@email.com">Email</a>
+        </div>
+        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">© 2025 Alfred Duckworth.</p>
     </footer>
-
-    <footer>
-    <div class="social-links">
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">GitHub</a>
-        <a href="mailto:your@email.com">Email</a>
-    </div>
-    <p style="opacity: 0.6; font-size: 0.85rem;">© 2025 Alfred Duckworth</p>
-</footer>
 
     <script src="script.js"></script>
 </body>

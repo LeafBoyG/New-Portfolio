@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Alfred Duckworth</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22Arial, sans-serif%22 font-weight=%22bold%22 fill=%22black%22>A</text></svg>">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,15 +29,15 @@
 
     <main class="contact-content reveal">
         
-        <div class="contact-container" style="max-width: 600px; margin: 0 auto; text-align: center;">
-            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Let's Create.</h1>
-            <p style="color: var(--text-muted); margin-bottom: 3rem;">I am currently open for new projects. Tell me about your idea.</p>
+        <div class="contact-container">
+            <h1 style="text-align: center; margin-bottom: 1rem;">Let's Create.</h1>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">I am currently open for new projects. Tell me about your idea.</p>
         
-            <form class="contact-form" action="#" method="POST" style="text-align: left;">
+            <form class="contact-form" action="#" method="POST">
                 
-                <div class="form-group" style="margin-bottom: 2rem;">
-                    <label style="display: block; margin-bottom: 1rem;">I am interested in:</label>
-                    <div class="checkbox-group" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div class="form-group">
+                    <label>I am interested in:</label>
+                    <div class="checkbox-group">
                         <label class="custom-checkbox">
                             <input type="checkbox" name="interest" value="web-design">
                             <span>Web Design</span>
@@ -68,7 +68,7 @@
                     <textarea id="message" name="message" rows="5" placeholder="Tell me a bit about the project..." required></textarea>
                 </div>
                 
-                <button type="submit" class="cta-button" style="width: 100%;">Send Request</button>
+                <button type="submit" class="btn-submit">Send Request</button>
             </form>
         </div>
 
