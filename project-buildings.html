@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture - Alfred Duckworth</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22Arial, sans-serif%22 font-weight=%22bold%22 fill=%22black%22>A</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">ALFRED DUCKWORTH</div>
+            
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Development</a></li> 
+                <li><a href="photography.html">Photography</a></li> 
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-content">
+
+        <section class="project-header reveal">
+            <h1>Architecture</h1>
+            <p class="project-subtitle">Structure, Geometry, and Light. <br><span style="font-size: 0.9rem; opacity: 0.7;">(Click images to compare Raw vs Edit)</span></p>
+        </section>
+
+        <section class="project-details reveal">
+            <div class="masonry-wrapper">
+
+                <div class="masonry-column">
+                    <img src="photography/buildings/Edit/Shard.webp" data-raw-src="photography/buildings/Raw/Shard.webp" class="reveal" alt="The Shard" onclick="openSliderLightbox(this)">
+                    
+                    <img src="photography/buildings/Edit/Apartment.webp" data-raw-src="photography/buildings/Raw/Apartment.webp" class="reveal" alt="Modern Apartments" onclick="openSliderLightbox(this)">
+                </div>
+
+                <div class="masonry-column">
+                    <img src="photography/buildings/Edit/RedBrickHouse.webp" data-raw-src="photography/buildings/Raw/RedBrickHouse.webp" class="reveal" alt="Red Brick House" onclick="openSliderLightbox(this)">
+                    
+                    <img src="photography/buildings/Edit/RamsGate.webp" data-raw-src="photography/buildings/Raw/RamsGate.webp" class="reveal" alt="Ramsgate" onclick="openSliderLightbox(this)">
+                </div>
+
+                <div class="masonry-column">
+                    <img src="photography/buildings/Edit/Bletchley.webp" data-raw-src="photography/buildings/Raw/Bletchley.webp" class="reveal" alt="Bletchley Park" onclick="openSliderLightbox(this)">
+                    
+                    <img src="photography/buildings/Edit/BlackAndWhiteHarbour.webp" data-raw-src="photography/buildings/Raw/BlackAndWhiteHarbour.webp" class="reveal" alt="Harbour BW" onclick="openSliderLightbox(this)">
+                </div>
+                
+                <div class="masonry-column">
+                    <img src="photography/buildings/Edit/FrontONHouse.webp" data-raw-src="photography/buildings/Raw/FrontONHouse.webp" class="reveal" alt="Harbour BW" onclick="openSliderLightbox(this)">
+                </div>
+
+            </div>
+        </section>
+
+        <section class="gear-section reveal">
+            <h2>The Toolkit</h2>
+            <div class="gear-grid">
+                <div class="gear-item">
+                    <h3>Cameras</h3>
+                    <p>Canon 4000D <br> Olympus OM-D E-M10 IV</p>
+                </div>
+                <div class="gear-item">
+                    <h3>Lenses</h3>
+                    <p>Standard & Wide Zooms</p>
+                </div>
+                <div class="gear-item">
+                    <h3>Focus</h3>
+                    <p>Perspective & Lines</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        
+        <div class="lightbox-slider-wrapper">
+            <img id="lb-img-before" class="lb-img-layer lb-img-before" src="" alt="Raw Version">
+            <img id="lb-img-after" class="lb-img-layer lb-img-after" src="" alt="Edited Version">
+            
+            <span class="lb-label lb-label-before">RAW</span>
+            <span class="lb-label lb-label-after">EDIT</span>
+
+            <input type="range" min="0" max="100" value="50" class="lb-comparison-range" id="lb-comparison-range">
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="mailto:your@email.com">Email</a>
+        </div>
+        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">© 2025 Alfred Duckworth. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
