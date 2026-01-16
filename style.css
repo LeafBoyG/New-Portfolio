@@ -684,3 +684,122 @@ footer {
     .about-grid { grid-template-columns: 1fr; text-align: center; }
     .profile-frame { transform: rotate(0); max-width: 80%; margin: 0 auto; }
 }
+
+/* =========================================
+   14. MOBILE OPTIMIZATION (2-Column Layouts)
+   ========================================= */
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+
+    /* --- TYPOGRAPHY SCALING --- */
+    .hero h1 { font-size: 2.8rem !important; line-height: 1.1; }
+    .hero p { font-size: 1.1rem; padding: 0 1rem; }
+    .project-header h1 { font-size: 3rem !important; }
+
+    /* --- LAYOUT STACKING --- */
+    main {
+        padding-top: 100px;
+        padding-left: 1rem; /* Less padding to give grid more room */
+        padding-right: 1rem;
+    }
+
+    /* Stack the About Page split grids (Text/Image) */
+    .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    /* Ensure About images are full width */
+    .about-grid > div { width: 100%; }
+
+    /* --- HOMEPAGE & PROJECTS (Force 2 Columns) --- */
+    .project-grid {
+        /* Force 2 equal columns */
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 1rem !important; /* Smaller gap for mobile */
+    }
+
+    /* Adjust Card Text for tight spaces */
+    .project-card {
+        padding: 0.8rem 0.5rem !important;
+    }
+    .project-card h3 {
+        font-size: 1rem !important; /* Smaller titles */
+    }
+    .project-card p {
+        font-size: 0.8rem !important; /* Smaller subtitle */
+    }
+    .project-card img, .project-card div[style*="background-color"] {
+        height: 150px !important; /* Shorter images */
+        margin-bottom: 0.8rem;
+    }
+
+    /* --- PHOTOGRAPHY MASONRY (2 Columns) --- */
+    /* We allow the 3 manual columns to wrap */
+    .masonry-wrapper {
+        flex-direction: row !important; /* Keep side-by-side */
+        flex-wrap: wrap;
+        gap: 10px !important;
+    }
+
+    .masonry-column {
+        /* Make columns roughly 50% width */
+        flex: 1 1 45% !important; 
+        min-width: 45%;
+    }
+    
+    /* The 3rd column will drop to the bottom and stretch, 
+       which looks fine and saves vertical space */
+
+    /* --- GREY BANDS --- */
+    .section-alt {
+        width: 100vw;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding: 4rem 1rem;
+    }
+
+    /* --- NAVIGATION --- */
+    nav { padding: 1.5rem; }
+    nav ul {
+        background-color: var(--background);
+        padding-top: 6rem;
+    }
+    nav ul li a {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    /* --- DISABLE 3D EFFECTS (Performance) --- */
+    .project-card { transform: none !important; }
+    .magnetic-btn { transform: none !important; }
+
+    /* --- LIGHTBOX TWEAKS --- */
+    .lightbox-slider-wrapper { width: 100%; height: 50vh; }
+    
+    .close-btn {
+        top: 15px; right: 15px;
+        color: white; background: rgba(0,0,0,0.5);
+        width: 40px; height: 40px; border-radius: 50%;
+        font-size: 30px; display: flex; align-items: center; justify-content: center;
+        padding-bottom: 4px;
+    }
+    
+    /* --- GEAR GRID (2 Columns) --- */
+    .gear-grid {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .gear-item {
+        /* Force 2 columns for gear too */
+        flex-basis: 40%; 
+    }
+}
