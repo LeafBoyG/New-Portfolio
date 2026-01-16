@@ -14,12 +14,13 @@
 
     <header>
         <nav>
-            <div class="logo">ALFRED DUCKWORTH</div>
+            <div class="logo">ALFRED DUCKWORTH <span class="status-dot"></span></div>
             <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html" class="active">About</a></li>
                 <li><a href="projects.html">Development</a></li>
+                <li><a href="graphic-design.html">Graphic Design</a></li>
                 <li><a href="photography.html">Photography</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
@@ -27,82 +28,98 @@
         </nav>
     </header>
 
-    <main class="about-content reveal">
-        <h1>About Me</h1>
+    <main>
         
-        <div class="about-intro">
-            <div class="intro-text">
-                <p>Hello! I'm Alfred. I am a <strong>Web Designer</strong> and <strong>Photographer</strong> fascinated by contrast—whether it’s in a black-and-white photo or a bold user interface.</p>
-                <p>I believe that great design is about storytelling. I love the discipline of <strong>coding</strong> mixed with the freedom of visual art. Whether I'm fine-tuning a layout in Figma, writing CSS animations, or waiting for the perfect light behind my camera, my goal is always the same: to create things that give pause and provoke an <strong>emotional</strong> response.</p>
-                <p>Beyond just making things look good, I want to make them work well. I am currently seeking a role where I can apply my skills in HTML, CSS, and UI Design to solve <strong>real</strong> problems.</p>
+        <section class="about-hero reveal">
+            <h1>Refining the complex<br>into the simple.</h1>
+            <p class="lead-text">I am a multidisciplinary creative designer.</p>
+        </section>
+
+        <section class="about-grid" style="align-items: start; margin-bottom: 6rem;">
+            
+            <div class="about-img reveal-img">
+                <div class="profile-frame">
+                    <img src="images/profile-photo.png" alt="Alfred Duckworth Portrait">
+                </div>
             </div>
 
-            <div class="intro-image">
-                <img src="images/profile-photo.png" alt="A photo of Alfred Duckworth">
-            </div>
-        </div> 
-
-        <section class="skills-section">
-            <h2>My Skills</h2>
-            <div class="skills-grid">
+            <div class="about-text reveal" style="padding-top: 2rem;">
+                <h3 style="color: var(--dark-green); margin-bottom: 1rem; font-family: 'Playfair Display', serif; font-size: 2rem;">The Backstory</h3>
                 
-                <div class="skill-category">
-                    <h3>Web Design & Dev</h3>
-                    <ul>
-                        <li>HTML5, CSS3 & JavaScript</li>
-                        <li>Responsive Design</li>
-                        <li>UI/UX Design (Figma)</li>
-                        <li>Wireframing & Prototyping</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Graphic Design</h3>
-                    <ul>
-                        <li>Brand Identity & Logos</li>
-                        <li>Layout & Typography</li>
-                        <li>Affinity Designer</li>
-                        <li>Vector Illustration</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Photography & Film</h3>
-                    <ul>
-                        <li>Portrait & Commercial</li>
-                        <li>Cinematography (Davinci Resolve)</li>
-                        <li>Photo Editing & Retouching</li>
-                        <li>Composition & Lighting</li>
-                    </ul>
-                </div>
+                <p>Hello! I'm Alfred. I started my journey with a camera in one hand and a code editor in the other. I've always been fascinated by <strong>contrast</strong>—whether it’s the stark interplay of light and shadow in a black-and-white photograph, or the logic of JavaScript meeting the fluid creativity of CSS.</p>
                 
-                <div class="skill-category">
-                    <h3>Digital Art</h3>
-                    <ul>
-                        <li>Character Design</li>
-                        <li>Line Drawing</li>
-                        <li>Impressionism</li>
-                        <li>Krita</li>
-                    </ul>
+                <p>I believe that great design isn't just about how things look—it's about how they feel. Whether I'm fine-tuning a layout in Figma, building a Flask application, or grading film footage, my goal is always the same: to create work that gives people pause.</p>
+                
+                <p>Currently, I am seeking a role where I can combine these disciplines to solve real problems for real people.</p>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="contact.html" class="cta-link magnetic-btn">Let's Work Together</a>
+                    <a href="resume.pdf" target="_blank" style="margin-left: 2rem; font-size: 0.9rem; border-bottom: 1px solid var(--text-muted);">View Resume</a>
                 </div>
-
             </div>
         </section>
+
+        <div class="section-alt reveal">
+            <section style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+                <h2 style="text-align: left; margin-bottom: 3rem; font-size: 2.5rem; color: var(--dark-green);">Technical Specifications</h2>
+                
+                <div class="tech-spec-grid">
+                    
+                    <div class="tech-spec-item spec-dev">
+                        <h3>Development</h3>
+                        <ul>
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>Python / Flask</li>
+                            <li>Responsive UI</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-spec-item spec-design">
+                        <h3>Design</h3>
+                        <ul>
+                            <li>UI/UX (Figma)</li>
+                            <li>Wireframing</li>
+                            <li>Affinity Designer</li>
+                            <li>Brand Identity</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-spec-item spec-photo">
+                        <h3>Photography</h3>
+                        <ul>
+                            <li>Portraiture</li>
+                            <li>Automotive</li>
+                            <li>Davinci Resolve</li>
+                            <li>Lightroom & PS</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-spec-item spec-art">
+                        <h3>Digital Art</h3>
+                        <ul>
+                            <li>Character Design</li>
+                            <li>Vector Illustration</li>
+                            <li>Krita</li>
+                            <li>Storyboarding</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
     </main>
 
     <footer>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="mailto:your@email.com">Email</a>
+        </div>
         <p>© 2025 Alfred Duckworth. All rights reserved.</p>
     </footer>
-
-    <footer>
-    <div class="social-links">
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">GitHub</a>
-        <a href="mailto:your@email.com">Email</a>
-    </div>
-    <p style="opacity: 0.6; font-size: 0.85rem;">© 2025 Alfred Duckworth</p>
-</footer>
 
     <script src="script.js"></script>
 </body>

@@ -1,103 +1,144 @@
 // =========================================
-// MODERN PORTFOLIO JAVASCRIPT
+// ORGANIC MOTION ENGINE
 // =========================================
 
-// --- 1. Navigation Toggle (Mobile Hamburger) ---
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('nav ul');
+document.addEventListener('DOMContentLoaded', () => {
 
-if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('nav-open');
-        navToggle.classList.toggle('nav-open');
+    // --- 1. MOBILE NAVIGATION TOGGLE ---
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('nav ul');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-open');
+            navToggle.classList.toggle('nav-open');
+        });
+    }
+
+    // --- 2. SCROLL REVEAL ENGINE ---
+    // This finds any element with class .reveal or .reveal-img and triggers it when visible
+    const observerOptions = {
+        threshold: 0.1, // Trigger when 10% visible
+        rootMargin: "0px 0px -50px 0px" // Trigger slightly before it enters screen
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                obs.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-img').forEach((el) => {
+        observer.observe(el);
     });
-}
 
-// --- 2. Modern Scroll Animations (IntersectionObserver) ---
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
+    // --- 3. MAGNETIC BUTTONS ---
+    // Buttons move slightly towards the mouse for a tactile feel
+    const magneticBtns = document.querySelectorAll('.cta-button, .btn-submit, .cta-link');
 
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            // Stop observing once revealed for performance
-            observer.unobserve(entry.target); 
-        }
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            // Move button (divided by 5 to dampen the movement)
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            // Snap back to center
+            btn.style.transform = 'translate(0px, 0px)';
+        });
     });
-}, observerOptions);
 
-document.querySelectorAll('.reveal').forEach((el) => {
-    observer.observe(el);
+    // --- 4. 3D CARD TILT EFFECT ---
+    // Project cards tilt based on mouse position
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Calculate rotation (center is 0)
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Limit rotation to +/- 10 degrees
+            const rotateX = ((y - centerY) / centerY) * -5; // Negative to tilt away
+            const rotateY = ((x - centerX) / centerX) * 5;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // Reset
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+
 });
 
-
-// --- 3. Advanced Slider Lightbox Logic (Mobile Drag Fix) ---
-
+// =========================================
+// LIGHTBOX LOGIC (Global Scope)
+// =========================================
 const lightbox = document.getElementById('lightbox');
 const lbImgBefore = document.getElementById('lb-img-before');
 const lbImgAfter = document.getElementById('lb-img-after');
 const lbRangeInput = document.getElementById('lb-comparison-range');
 
 function openSliderLightbox(element) {
+    // Get image sources
     const editSrc = element.getAttribute('src');
+    // If no raw src defined, use the same image (fallback)
     const rawSrc = element.getAttribute('data-raw-src') || editSrc;
 
     if(lightbox && lbImgBefore && lbImgAfter) {
         lbImgBefore.src = rawSrc;
         lbImgAfter.src = editSrc;
         
-        // Reset to center
-        lbRangeInput.value = 50;
+        // Reset slider to center
+        if(lbRangeInput) lbRangeInput.value = 50;
         lbImgBefore.style.clipPath = "inset(0 50% 0 0)";
 
+        // Show Lightbox
         lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // Stop background scroll
     }
 }
 
-// Helper: Visual update logic
 function updateSliderPosition(percentage) {
-    // 1. Clamp value between 0 and 100
     percentage = Math.max(0, Math.min(100, percentage));
     
-    // 2. Use requestAnimationFrame for 60fps smoothness
+    // Update the clip-path
     requestAnimationFrame(() => {
-        // Update the mask (Reveal/Hide image)
-        // Note: inset(top right bottom left) -> we change 'right'
-        lbImgBefore.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+        if(lbImgBefore) lbImgBefore.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
     });
-
-    // 3. Keep the invisible input in sync (optional, but good practice)
+    
+    // Sync Input
     if(lbRangeInput) lbRangeInput.value = percentage;
 }
 
-if (lbRangeInput && lbImgBefore) {
+// Event Listeners for Lightbox
+if (lbRangeInput) {
+    lbRangeInput.addEventListener('input', (e) => updateSliderPosition(e.target.value));
     
-    // --- DESKTOP (Mouse) ---
-    lbRangeInput.addEventListener('input', (e) => {
-        updateSliderPosition(e.target.value);
-    });
-
-    // --- MOBILE (Touch) ---
-    // We attach to 'touchmove' to handle the dragging manually
+    // Mobile Drag Support
     lbRangeInput.addEventListener('touchmove', (e) => {
-        // STOP the page from scrolling while dragging!
-        e.preventDefault(); 
-        
-        const sliderRect = lbRangeInput.getBoundingClientRect();
+        e.preventDefault();
+        const rect = lbRangeInput.getBoundingClientRect();
         const touchX = e.touches[0].clientX;
-        
-        // Calculate the percentage based on finger position relative to the box
-        let percent = ((touchX - sliderRect.left) / sliderRect.width) * 100;
-        
+        let percent = ((touchX - rect.left) / rect.width) * 100;
         updateSliderPosition(percent);
-    }, { passive: false }); // 'passive: false' allows us to use preventDefault()
+    }, { passive: false });
 }
 
+// Close Functions
 function closeLightbox() {
     if(lightbox) {
         lightbox.classList.remove('active');
@@ -107,21 +148,8 @@ function closeLightbox() {
 
 if(lightbox) {
     lightbox.addEventListener('click', (e) => {
-        // Close if clicking the background (but not the slider itself)
-        if (e.target === lightbox) {
+        if (e.target === lightbox || e.target.classList.contains('close-btn')) {
             closeLightbox();
         }
     });
-
-
-    // --- Navigation Scroll Effect ---
-const header = document.querySelector('header');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
 }
