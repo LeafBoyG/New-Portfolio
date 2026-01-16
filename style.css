@@ -32,13 +32,18 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    width: 100%;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--background);
     color: var(--text-main);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    position: relative;
     
     /* Page Fade In Animation */
     animation: pageIn 0.8s ease-out;
@@ -60,48 +65,35 @@ a {
     transition: color 0.2s ease;
 }
 
-
 /* =========================================
-   BACKGROUND UPGRADES
+   3. BACKGROUND TEXTURES (Grid + Glow)
    ========================================= */
-
-/* 1. The Blueprint Grid (Technical Texture) */
+/* The Blueprint Grid (Technical Texture) */
 body::before {
     content: "";
     position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    z-index: -2; /* Sits way back */
-    
-    /* Creates a grid of tiny, faint grey dots */
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2;
     background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
-    background-size: 40px 40px; /* Space between dots */
-    opacity: 0.4; /* Keep it very subtle */
+    background-size: 40px 40px;
+    opacity: 0.4;
     pointer-events: none;
 }
 
-/* 2. The Organic Glow (Soft Depth) */
+/* The Organic Glow (Soft Depth) */
 body::after {
     content: "";
     position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    z-index: -1; /* Sits behind content, but in front of grid */
-    
-    /* Two soft lights: Top-Left and Bottom-Right */
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
     background: 
         radial-gradient(circle at 0% 0%, rgba(15, 62, 41, 0.03) 0%, transparent 50%),
         radial-gradient(circle at 100% 100%, rgba(26, 93, 63, 0.05) 0%, transparent 50%);
-        
     pointer-events: none;
 }
 
 /* =========================================
-   3. SHARED COMPONENTS & ANIMATIONS
+   4. SHARED COMPONENTS & ANIMATIONS
    ========================================= */
 
 /* --- Primary Button --- */
@@ -119,8 +111,6 @@ body::after {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    
-    /* Smooth movement for Magnetic Effect */
     will-change: transform; 
 }
 
@@ -135,39 +125,35 @@ body::after {
     transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* --- Editorial Image Reveal Wrapper --- */
-/* Wrap images in <div class="reveal-img"> to use */
+/* --- Image Reveal Wrapper --- */
 .reveal-img {
     overflow: hidden;
     opacity: 0;
     transition: opacity 0.6s ease-out;
     border-radius: 8px;
 }
-
 .reveal-img img {
     transform: scale(1.3);
     transition: transform 1.5s var(--ease-cinematic);
     will-change: transform;
 }
-
 .reveal-img.active { opacity: 1; }
 .reveal-img.active img { transform: scale(1); }
 
-/* --- Base Reveal Animation (Scroll) --- */
+/* --- Base Scroll Reveal --- */
 .reveal {
     opacity: 0;
     transform: translateY(40px) scale(0.98);
     transition: opacity var(--anim-duration) var(--ease-cinematic),
                 transform var(--anim-duration) var(--ease-cinematic);
 }
-
 .reveal.active {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
 
 /* =========================================
-   4. HEADER & NAVIGATION
+   5. HEADER & NAVIGATION
    ========================================= */
 header {
     background-color: rgba(249, 249, 249, 0.95);
@@ -196,7 +182,6 @@ nav {
     text-transform: uppercase;
 }
 
-/* The Status Dot */
 .status-dot {
     display: inline-block;
     width: 8px;
@@ -227,14 +212,12 @@ nav ul li a {
     padding-bottom: 2px;
 }
 
-/* Underline Animation */
 nav ul li a::after {
     content: '';
     position: absolute;
     width: 0;
     height: 1px;
-    bottom: 0;
-    left: 0;
+    bottom: 0; left: 0;
     background-color: var(--dark-green);
     transition: width 0.3s ease;
 }
@@ -242,13 +225,12 @@ nav ul li a::after {
 nav ul li a:hover::after, nav ul li a.active::after {
     width: 100%;
 }
-
 nav ul li a:hover, nav ul li a.active {
     color: var(--dark-green);
 }
 
 /* =========================================
-   5. HERO & LAYOUT
+   6. HERO & TYPOGRAPHY
    ========================================= */
 main {
     max-width: 1200px;
@@ -267,7 +249,7 @@ main {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     color: var(--dark-green);
     margin-bottom: 1.5rem;
     line-height: 1.1;
@@ -278,8 +260,26 @@ main {
     color: var(--text-muted);
 }
 
+/* Grey Band Sections */
+.section-alt {
+    background-color: #F0F2F1;
+    position: relative;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    left: 50%;
+    right: 50%;
+    width: 100vw;
+    padding: 6rem 0;
+    margin-top: 4rem;
+}
+.section-alt > * {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 /* =========================================
-   6. PROJECT GRIDS (Graphic Design & Dev)
+   7. PROJECT GRIDS (Development & Design)
    ========================================= */
 .project-gallery h2 {
     font-family: 'Playfair Display', serif;
@@ -305,7 +305,6 @@ main {
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
     border-color: var(--border-color);
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
@@ -331,7 +330,7 @@ main {
 }
 
 /* =========================================
-   7. MASONRY (Photography)
+   8. PHOTOGRAPHY (Masonry & Gear)
    ========================================= */
 .masonry-wrapper {
     display: flex;
@@ -351,7 +350,7 @@ main {
     display: block;
     border-radius: 8px;
     box-shadow: var(--shadow-soft);
-    transition: transform 0.4s ease, filter 0.4s ease;
+    transition: transform 0.4s ease;
     cursor: zoom-in;
 }
 
@@ -361,120 +360,79 @@ main {
     z-index: 2;
 }
 
+.gear-section { margin-top: 0; padding-top: 0; text-align: center; }
+.gear-grid { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; margin-top: 2rem; }
+.gear-item h3 { color: var(--dark-green); font-size: 1.1rem; border-bottom: 2px solid var(--dark-green); display: inline-block; margin-bottom: 0.5rem; }
+.gear-item p { color: var(--text-muted); font-size: 0.95rem; }
+
 /* =========================================
-   8. FORMS & INPUTS
+   9. ABOUT PAGE (Polaroid & Tech Spec)
+   ========================================= */
+.about-hero h1 { font-size: 4rem; line-height: 1.1; color: var(--dark-green); margin-bottom: 2rem; text-align: center; }
+.profile-frame {
+    position: relative; padding: 15px 15px 50px 15px; background: #fff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: rotate(-2deg); transition: transform 0.5s var(--ease-cinematic);
+}
+.profile-frame:hover { transform: rotate(0deg) scale(1.02); z-index: 10; }
+.profile-frame img { width: 100%; filter: grayscale(100%); transition: filter 0.5s ease; }
+.profile-frame:hover img { filter: grayscale(0%); }
+
+.tech-spec-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    border-top: 2px solid var(--dark-green); border-left: 1px solid var(--border-color);
+}
+.tech-spec-item {
+    border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+    padding: 2.5rem; background: var(--background); transition: background 0.3s ease;
+}
+.tech-spec-item:hover { background: #fff; }
+.tech-spec-item h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.tech-spec-item h3::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--dark-green); }
+.tech-spec-item ul { list-style: none; }
+.tech-spec-item li { margin-bottom: 0.8rem; font-size: 1.1rem; color: var(--text-main); font-weight: 500; }
+
+/* =========================================
+   10. FORMS & INPUTS
    ========================================= */
 .contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: var(--surface);
-    padding: 3rem;
-    border-radius: 16px;
-    box-shadow: var(--shadow-soft);
+    max-width: 600px; margin: 0 auto; background: var(--surface);
+    padding: 3rem; border-radius: 16px; box-shadow: var(--shadow-soft);
 }
-
 .contact-form label {
-    font-weight: 600;
-    color: var(--dark-green);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    display: block;
+    font-weight: 600; color: var(--dark-green); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; display: block;
 }
-
-.contact-form .form-group { margin-bottom: 1.5rem; }
-
+.form-group { margin-bottom: 1.5rem; }
 input[type="text"], input[type="email"], textarea {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
-    font-family: inherit;
-    color: var(--text-main);
-    background-color: #f0f0f0;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    width: 100%; padding: 1rem; font-size: 1rem; font-family: inherit; color: var(--text-main);
+    background-color: #f0f0f0; border: 2px solid transparent; border-radius: 8px; transition: all 0.3s ease;
 }
-
 input:focus, textarea:focus {
-    background-color: var(--surface);
-    border-color: var(--dark-green);
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(15, 62, 41, 0.1);
+    background-color: var(--surface); border-color: var(--dark-green); outline: none; box-shadow: 0 0 0 4px rgba(15, 62, 41, 0.1);
 }
-
 /* Custom Checkboxes */
 .checkbox-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
 .custom-checkbox input { display: none; }
 .custom-checkbox span {
-    display: inline-block;
-    padding: 0.5rem 1.2rem;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    display: inline-block; padding: 0.5rem 1.2rem; border: 1px solid var(--border-color);
+    border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s ease;
 }
 .custom-checkbox input:checked + span {
-    background-color: var(--dark-green);
-    color: white;
-    border-color: var(--dark-green);
+    background-color: var(--dark-green); color: white; border-color: var(--dark-green);
 }
 
 /* =========================================
-   9. ABOUT & SKILLS
-   ========================================= */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    margin-top: 2rem;
-}
-.about-img img { border-radius: 12px; box-shadow: var(--shadow-soft); }
-.about-text p { margin-bottom: 1.5rem; color: var(--text-muted); }
-
-.skills-section { margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border-color); }
-.skills-grid { display: flex; flex-wrap: wrap; gap: 3rem; justify-content: center; }
-.skill-category h3 {
-    color: var(--dark-green);
-    border-bottom: 2px solid var(--dark-green);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-}
-.skill-category ul { list-style: none; }
-.skill-category li { margin-bottom: 0.5rem; color: var(--text-muted); position: relative; padding-left: 15px; }
-.skill-category li::before { content: '›'; position: absolute; left: 0; color: var(--dark-green); font-weight: bold; }
-
-/* =========================================
-   10. LIGHTBOX (Clean Style)
+   11. LIGHTBOX (Slider Style)
    ========================================= */
 .lightbox {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 62, 41, 0.95);
-    backdrop-filter: blur(5px);
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(15, 62, 41, 0.95); backdrop-filter: blur(5px);
+    justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;
 }
-
 .lightbox.active { display: flex; opacity: 1; }
 
 .lightbox-slider-wrapper {
-    position: relative;
-    width: 90vw;
-    height: 85vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative; width: 90vw; height: 85vh; 
+    display: flex; justify-content: center; align-items: center;
     box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
@@ -483,53 +441,35 @@ input:focus, textarea:focus {
     object-fit: contain; pointer-events: none; user-select: none;
 }
 .lb-img-before {
-    z-index: 2;
-    clip-path: inset(0 50% 0 0); 
-    border-right: 2px solid white; 
-    will-change: clip-path;
+    z-index: 2; clip-path: inset(0 50% 0 0); border-right: 2px solid white; will-change: clip-path;
 }
 .lb-img-after { z-index: 1; }
+
 .lb-comparison-range {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     z-index: 10; opacity: 0; margin: 0; cursor: col-resize; touch-action: none; 
 }
-
-/* Labels */
 .lb-label {
-    position: absolute; top: 20px;
-    color: white; font-weight: 700; font-size: 0.9rem;
-    z-index: 5; pointer-events: none;
-    background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 4px;
+    position: absolute; top: 20px; color: white; font-weight: 700; font-size: 0.9rem;
+    z-index: 5; pointer-events: none; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 4px;
 }
 .lb-label-before { left: 25px; }
 .lb-label-after { right: 25px; }
 
 .close-btn {
-    position: absolute; top: 20px; right: 30px;
-    color: #fff; font-size: 40px; cursor: pointer; z-index: 2001;
+    position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; z-index: 2001;
 }
 
-/* Gear Section (Bottom of pages) */
-.gear-section { margin-top: 6rem; padding-top: 3rem; border-top: 1px solid var(--border-color); text-align: center; }
-.gear-grid { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; margin-top: 2rem; }
-.gear-item h3 { color: var(--dark-green); font-size: 1.1rem; }
-.gear-item p { color: var(--text-muted); font-size: 0.95rem; }
-
 /* =========================================
-   11. FOOTER
+   12. FOOTER
    ========================================= */
 footer {
-    text-align: center;
-    padding: 3rem 2rem;
-    background-color: #f0f0f0;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-top: 4rem;
+    text-align: center; padding: 3rem 2rem; background-color: #f0f0f0;
+    color: var(--text-muted); font-size: 0.9rem; margin-top: 4rem;
 }
 .social-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
 .social-links a { 
-    color: var(--dark-green); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; 
-    position: relative;
+    color: var(--dark-green); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; position: relative;
 }
 .social-links a::after {
     content: ''; display: block; width: 0; height: 1px; background: var(--dark-green); transition: width 0.3s;
@@ -537,269 +477,118 @@ footer {
 .social-links a:hover::after { width: 100%; }
 
 /* =========================================
-   12. MOBILE RESPONSIVE
+   13. MOBILE OPTIMIZATION (Full Fix)
    ========================================= */
-.nav-toggle { display: none; background: transparent; border: 0; cursor: pointer; }
-.hamburger { display: block; width: 25px; height: 3px; background: var(--dark-green); position: relative; }
-.hamburger::before, .hamburger::after { content: ''; position: absolute; width: 25px; height: 3px; background: var(--dark-green); left: 0; transition: 0.3s; }
-.hamburger::before { top: -8px; }
-.hamburger::after { bottom: -8px; }
-
-@media (max-width: 768px) {
-    .nav-toggle { display: block; }
-    nav ul {
-        position: fixed; background: var(--surface);
-        left: 0; right: 0; top: 0; bottom: 0;
-        z-index: 90; flex-direction: column; justify-content: center;
-        transform: translateX(100%); transition: 0.3s ease;
-    }
-    nav ul.nav-open { transform: translateX(0); }
-    nav ul li a { font-size: 1.5rem; }
-    
-    .about-grid, .masonry-wrapper, .case-study-meta { grid-template-columns: 1fr; flex-direction: column; }
-    .hero h1 { font-size: 2.5rem; }
-    
-    .nav-toggle.nav-open .hamburger { background: transparent; }
-    .nav-toggle.nav-open .hamburger::before { transform: rotate(45deg); top: 0; }
-    .nav-toggle.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
-}
-
-/* =========================================
-   13. CLEANUP (Hide Old Cinematic Elements)
-   ========================================= */
-.hero-background, .hero-overlay, .film-grain, .cursor-dot, .cursor-outline {
-    display: none !important;
-}
-
-/* =========================================
-   ABOUT PAGE REFINEMENTS
-   ========================================= */
-
-/* 1. The "Big Statement" Hero */
-.about-hero {
-    text-align: center;
-    padding: 6rem 1rem 4rem;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.about-hero h1 {
-    font-size: 4rem;
-    line-height: 1.1;
-    color: var(--dark-green);
-    margin-bottom: 2rem;
-}
-
-.about-hero .lead-text {
-    font-size: 1.4rem;
-    color: var(--text-muted);
-    font-weight: 300;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* 2. The "Polaroid" Image Style */
-.profile-frame {
-    position: relative;
-    padding: 15px 15px 50px 15px; /* Extra bottom padding for "Polaroid" look */
-    background: #fff;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    transform: rotate(-2deg); /* Jaunty angle */
-    transition: transform 0.5s var(--ease-cinematic);
-}
-
-.profile-frame:hover {
-    transform: rotate(0deg) scale(1.02); /* Straightens up on hover */
-    z-index: 10;
-}
-
-.profile-frame img {
-    width: 100%;
-    filter: grayscale(100%); /* Vintage B&W */
-    transition: filter 0.5s ease;
-}
-
-.profile-frame:hover img {
-    filter: grayscale(0%); /* Color reveal on hover */
-}
-
-/* 3. The "Tech Spec" Skills Grid */
-.tech-spec-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    border-top: 2px solid var(--dark-green);
-    border-left: 1px solid var(--border-color);
-}
-
-.tech-spec-item {
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: 2.5rem;
-    background: var(--background);
-    transition: background 0.3s ease;
-}
-
-.tech-spec-item:hover {
-    background: #fff;
-}
-
-.tech-spec-item h3 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Colored Accents for Categories */
-.tech-spec-item h3::before {
-    content: '';
-    display: block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-}
-.spec-dev h3::before { background: var(--dark-green); }
-.spec-design h3::before { background: #E64C2E; /* Burnt Orange */ }
-.spec-photo h3::before { background: #F0A658; /* Apricot */ }
-.spec-art h3::before { background: #333; }
-
-.tech-spec-item ul {
-    list-style: none;
-}
-
-.tech-spec-item li {
-    margin-bottom: 0.8rem;
-    font-size: 1.1rem;
-    color: var(--text-main);
-    font-weight: 500;
-}
-
-/* Mobile Tweak */
-@media (max-width: 768px) {
-    .about-hero h1 { font-size: 2.5rem; }
-    .about-grid { grid-template-columns: 1fr; text-align: center; }
-    .profile-frame { transform: rotate(0); max-width: 80%; margin: 0 auto; }
-}
-
-/* =========================================
-   14. MOBILE OPTIMIZATION (2-Column Layouts)
-   ========================================= */
-
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-}
+.nav-toggle { display: none; } /* Hidden on desktop */
 
 @media (max-width: 768px) {
 
     /* --- TYPOGRAPHY SCALING --- */
     .hero h1 { font-size: 2.8rem !important; line-height: 1.1; }
     .hero p { font-size: 1.1rem; padding: 0 1rem; }
-    .project-header h1 { font-size: 3rem !important; }
+    .project-header h1, .about-hero h1 { font-size: 3rem !important; }
 
     /* --- LAYOUT STACKING --- */
     main {
         padding-top: 100px;
-        padding-left: 1rem; /* Less padding to give grid more room */
+        padding-left: 1rem; 
         padding-right: 1rem;
     }
 
-    /* Stack the About Page split grids (Text/Image) */
+    /* Stack the About Page split grids */
     .about-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        display: flex; flex-direction: column; gap: 2rem;
     }
-    
-    /* Ensure About images are full width */
     .about-grid > div { width: 100%; }
 
     /* --- HOMEPAGE & PROJECTS (Force 2 Columns) --- */
     .project-grid {
-        /* Force 2 equal columns */
         grid-template-columns: repeat(2, 1fr) !important; 
-        gap: 1rem !important; /* Smaller gap for mobile */
+        gap: 1rem !important;
     }
-
-    /* Adjust Card Text for tight spaces */
-    .project-card {
-        padding: 0.8rem 0.5rem !important;
-    }
-    .project-card h3 {
-        font-size: 1rem !important; /* Smaller titles */
-    }
-    .project-card p {
-        font-size: 0.8rem !important; /* Smaller subtitle */
-    }
+    .project-card { padding: 0.8rem 0.5rem !important; }
+    .project-card h3 { font-size: 1rem !important; }
+    .project-card p { font-size: 0.8rem !important; }
     .project-card img, .project-card div[style*="background-color"] {
-        height: 150px !important; /* Shorter images */
-        margin-bottom: 0.8rem;
+        height: 150px !important; margin-bottom: 0.8rem;
     }
 
     /* --- PHOTOGRAPHY MASONRY (2 Columns) --- */
-    /* We allow the 3 manual columns to wrap */
     .masonry-wrapper {
-        flex-direction: row !important; /* Keep side-by-side */
+        flex-direction: row !important; 
         flex-wrap: wrap;
         gap: 10px !important;
     }
-
     .masonry-column {
-        /* Make columns roughly 50% width */
-        flex: 1 1 45% !important; 
-        min-width: 45%;
+        flex: 1 1 45% !important; min-width: 45%;
     }
-    
-    /* The 3rd column will drop to the bottom and stretch, 
-       which looks fine and saves vertical space */
 
     /* --- GREY BANDS --- */
     .section-alt {
-        width: 100vw;
-        margin-left: -1rem;
-        margin-right: -1rem;
-        padding: 4rem 1rem;
+        width: 100vw; margin-left: -1rem; margin-right: -1rem; padding: 4rem 1rem;
     }
 
-    /* --- NAVIGATION --- */
-    nav { padding: 1.5rem; }
+    /* --- NAVIGATION (Mobile Overlay) --- */
+    .nav-toggle {
+        display: block; background: transparent; border: none; cursor: pointer;
+        z-index: 2000; position: relative;
+    }
+
+    /* The Full Screen Menu */
     nav ul {
-        background-color: var(--background);
-        padding-top: 6rem;
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background-color: #F9F9F9;
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        gap: 2rem; transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        z-index: 1500; padding-top: 0;
     }
+    nav ul.nav-open { transform: translateX(0); box-shadow: -10px 0 30px rgba(0,0,0,0.1); }
+
+    /* Mobile Links Styling */
+    nav ul li {
+        width: 100%; text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.4s ease;
+    }
+    nav ul.nav-open li { opacity: 1; transform: translateY(0); }
+    
+    /* Stagger delays */
+    nav ul.nav-open li:nth-child(1) { transition-delay: 0.1s; }
+    nav ul.nav-open li:nth-child(2) { transition-delay: 0.15s; }
+    nav ul.nav-open li:nth-child(3) { transition-delay: 0.2s; }
+    nav ul.nav-open li:nth-child(4) { transition-delay: 0.25s; }
+    nav ul.nav-open li:nth-child(5) { transition-delay: 0.3s; }
+    nav ul.nav-open li:nth-child(6) { transition-delay: 0.35s; }
+    nav ul.nav-open li:nth-child(7) { transition-delay: 0.4s; }
+
     nav ul li a {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        display: block;
+        font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--dark-green); display: block; padding: 0.5rem;
+    }
+    
+    /* Resume Link specific style */
+    nav ul li a.resume-link {
+        font-family: 'Inter', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px;
+        border: 2px solid var(--dark-green); display: inline-block; padding: 0.8rem 2rem; border-radius: 50px; margin-top: 1rem;
     }
 
-    /* --- DISABLE 3D EFFECTS (Performance) --- */
+    /* --- HAMBURGER ANIMATION --- */
+    .hamburger {
+        display: block; width: 30px; height: 2px; background: var(--dark-green); position: relative; transition: all 0.3s ease;
+    }
+    .hamburger::before, .hamburger::after {
+        content: ''; position: absolute; width: 30px; height: 2px; background: var(--dark-green); left: 0; transition: all 0.3s ease;
+    }
+    .hamburger::before { top: -8px; }
+    .hamburger::after { top: 8px; }
+
+    .nav-toggle.nav-open .hamburger { background: transparent; }
+    .nav-toggle.nav-open .hamburger::before { transform: rotate(45deg); top: 0; }
+    .nav-toggle.nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
+
+    /* --- PERFORMANCE (Disable complex animations) --- */
     .project-card { transform: none !important; }
     .magnetic-btn { transform: none !important; }
 
-    /* --- LIGHTBOX TWEAKS --- */
-    .lightbox-slider-wrapper { width: 100%; height: 50vh; }
-    
-    .close-btn {
-        top: 15px; right: 15px;
-        color: white; background: rgba(0,0,0,0.5);
-        width: 40px; height: 40px; border-radius: 50%;
-        font-size: 30px; display: flex; align-items: center; justify-content: center;
-        padding-bottom: 4px;
-    }
-    
     /* --- GEAR GRID (2 Columns) --- */
-    .gear-grid {
-        gap: 2rem;
-        flex-wrap: wrap;
-    }
-    .gear-item {
-        /* Force 2 columns for gear too */
-        flex-basis: 40%; 
-    }
+    .gear-grid { gap: 2rem; flex-wrap: wrap; }
+    .gear-item { flex-basis: 40%; }
 }
