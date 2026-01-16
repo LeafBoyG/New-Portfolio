@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Projects - Alfred Duckworth</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22Arial, sans-serif%22 font-weight=%22bold%22 fill=%22black%22>A</text></svg>">
+    <title>Development - Alfred Duckworth</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,24 +12,14 @@
 </head>
 <body>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     <header>
-         <nav>
-            <div class="logo">
-                ALFRED DUCKWORTH <span class="status-dot" title="Available for work"></span>
-            </div>
-            
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
-            
+        <nav>
+            <div class="logo">ALFRED DUCKWORTH <span class="status-dot"></span></div>
+            <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="projects.html" class="active">Development</a></li> 
-                <li><a href="graphic-design.html">Graphic Design</a></li>
+                <li><a href="projects.html" class="active">Development</a></li> <li><a href="graphic-design.html">Graphic Design</a></li>
                 <li><a href="photography.html">Photography</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
@@ -37,68 +27,95 @@
         </nav>
     </header>
 
-    <main class="project-content"> <section class="reveal">
-            <h1>All Projects</h1>
-            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px;">
-                A curated collection of my technical development work and creative visual projects.
-            </p>
+    <main>
+
+        <section class="hero reveal">
+            <h1>Architecture &<br>Interaction.</h1>
+            <p>Building scalable web applications with a focus on clean code and intuitive user experience.</p>
+            
+            <div style="margin-top: 2rem;">
+                <a href="https://github.com" target="_blank" class="cta-link magnetic-btn">View GitHub Profile</a>
+            </div>
         </section>
 
         <section class="project-gallery reveal">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: left; padding-left: 10px; border-left: 3px solid var(--dark-green);">Selected Projects</h2>
             
-            <h2 style="margin-top: 4rem; font-size: 1.5rem; color: white; border-bottom: 1px solid #333; padding-bottom: 1rem;">Development & Design</h2>
-            
-            <div class="project-grid" style="margin-top: 2rem;">
+            <div class="project-grid">
                 
                 <a href="project-solis.html" class="project-card-link">
                     <div class="project-card">
-                        <img src="images/thumbnails/solis-thumbnail.webp" alt="Solis App">
-                        <h3>Solis</h3>
-                        <p>Web App & Product Design</p> 
+                        <img src="images/thumbnails/solis-thumbnail.webp" alt="Solis App Interface">
+                        <div style="padding: 0 0.5rem;">
+                            <h3>Solis App</h3>
+                            <p>Full Stack • Python & Flask</p> 
+                        </div>
                     </div>
                 </a>
 
                 <a href="project-generator.html" class="project-card-link">
                     <div class="project-card">
-                        <img src="images/thumbnails/generator-thumbnail.webp" alt="SVG Generator">
-                        <h3>SVG Shape Generator</h3>
-                        <p>Frontend Creative Coding</p>
+                        <img src="images/thumbnails/generator-thumbnail.webp" alt="SVG Generator Interface">
+                        <div style="padding: 0 0.5rem;">
+                            <h3>Shape Generator</h3>
+                            <p>Frontend • Interactive JS</p>
+                        </div>
                     </div>
                 </a>
 
-            </div>
-
-
-            <h2 style="margin-top: 5rem; font-size: 1.5rem; color: white; border-bottom: 1px solid #333; padding-bottom: 1rem;">Photography & Film</h2>
-            
-            <div class="project-grid" style="margin-top: 2rem;">
-
-                <a href="project-365.html" class="project-card-link">
+                <a href="#" class="project-card-link" style="cursor: default;">
                     <div class="project-card">
-                        <img src="images/thumbnails/365-thumbnail.webp" alt="365 Project">
-                        <h3>365 Days of Photography</h3>
-                        <p>Personal Project</p>
-                    </div>
-                </a>
-                
-                <a href="project-cars.html" class="project-card-link">
-                    <div class="project-card">
-                        <img src="images/thumbnails/AutomotiveThumb.png" alt="Automotive">
-                        <h3>Automotive</h3>
-                        <p>Motion & Structure</p>
-                    </div>
-                </a>
-                
-                <a href="project-buildings.html" class="project-card-link">
-                    <div class="project-card">
-                        <img src="images/thumbnails/buildings-thumbnail.webp" alt="Architecture">
-                        <h3>Architecture</h3>
-                        <p>Form & Geometry</p>
+                        <div style="background-color: #e0e0e0; height: 250px; border-radius: 8px; margin-bottom: 1.2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+                            <span style="font-family: monospace; color: #888; font-size: 1.2rem;">&lt; / &gt;</span>
+                            <span style="color: #999; text-transform: uppercase; font-size: 0.8rem; margin-top: 0.5rem;">Source Code</span>
+                        </div>
+                        <div style="padding: 0 0.5rem;">
+                            <h3>Portfolio V2</h3>
+                            <p>System Design • HTML5/CSS3</p>
+                        </div>
                     </div>
                 </a>
 
             </div>
         </section>
+
+        <div class="section-alt reveal">
+            <section style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+                <h2 style="margin-bottom: 3rem; color: var(--dark-green);">Current Stack</h2>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem;">
+                    
+                    <div style="text-align: left;">
+                        <h4 style="color: var(--dark-green); border-bottom: 2px solid var(--dark-green); padding-bottom: 0.5rem; margin-bottom: 1rem; display: inline-block;">Core</h4>
+                        <ul style="list-style: none; color: var(--text-muted);">
+                            <li style="margin-bottom: 0.5rem;">HTML5 Semantic</li>
+                            <li style="margin-bottom: 0.5rem;">Modern CSS3</li>
+                            <li style="margin-bottom: 0.5rem;">JavaScript ES6+</li>
+                        </ul>
+                    </div>
+
+                    <div style="text-align: left;">
+                        <h4 style="color: var(--dark-green); border-bottom: 2px solid var(--dark-green); padding-bottom: 0.5rem; margin-bottom: 1rem; display: inline-block;">Frameworks</h4>
+                        <ul style="list-style: none; color: var(--text-muted);">
+                            <li style="margin-bottom: 0.5rem;">Python Flask</li>
+                            <li style="margin-bottom: 0.5rem;">React (Learning)</li>
+                            <li style="margin-bottom: 0.5rem;">Tailwind CSS</li>
+                        </ul>
+                    </div>
+
+                    <div style="text-align: left;">
+                        <h4 style="color: var(--dark-green); border-bottom: 2px solid var(--dark-green); padding-bottom: 0.5rem; margin-bottom: 1rem; display: inline-block;">Tools</h4>
+                        <ul style="list-style: none; color: var(--text-muted);">
+                            <li style="margin-bottom: 0.5rem;">Git & GitHub</li>
+                            <li style="margin-bottom: 0.5rem;">Figma</li>
+                            <li style="margin-bottom: 0.5rem;">VS Code</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
     </main>
 
     <footer>
@@ -108,7 +125,7 @@
             <a href="#" target="_blank">GitHub</a>
             <a href="mailto:your@email.com">Email</a>
         </div>
-        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">© 2025 Alfred Duckworth.</p>
+        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

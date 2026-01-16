@@ -14,24 +14,24 @@
 
     <header>
         <nav>
-            <div class="logo">ALFRED DUCKWORTH</div>
+            <div class="logo">ALFRED DUCKWORTH <span class="status-dot"></span></div>
             <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Development</a></li>
                 <li><a href="graphic-design.html">Graphic Design</a></li>
-                <li><a href="photography.html">Photography</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="photography.html" class="active">Photography</a></li> <li><a href="contact.html">Contact</a></li>
                 <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+
         <section class="hero reveal">
-            <h1>Visual Stories</h1>
-            <p>Capturing light, motion, and stillness.</p>
+            <h1>Stilled Motion.<br>Captured Light.</h1>
+            <p>A collection of visual narratives exploring machinery, architecture, and the quiet moments in between.</p>
         </section>
 
         <section class="project-gallery reveal">
@@ -39,46 +39,89 @@
                 
                 <a href="project-cars.html" class="project-card-link">
                     <div class="project-card">
-                        <img src="images/Thumbnails/AutomotiveThumb.png" alt="Half And Half Picture Of Mazda">
-                        <h3>Automotive</h3>
-                        <p>Motion & Machinery</p> 
+                        <img src="images/thumbnails/AutomotiveThumb.png" alt="Long exposure of traffic">
+                        <div style="padding: 0 0.5rem;">
+                            <h3>Automotive</h3>
+                            <p>Motion & Machinery</p> 
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-buildings.html" class="project-card-link">
+                    <div class="project-card">
+                        <img src="images/thumbnails/buildings-thumbnail.webp" alt="Architecture">
+                        <div style="padding: 0 0.5rem;">
+                            <h3>Architecture</h3>
+                            <p>Form & Geometry</p> 
+                        </div>
                     </div>
                 </a>
 
                 <a href="project-365.html" class="project-card-link">
                     <div class="project-card">
-                        <img src="images/365-thumbnail.png" alt="365 Project Thumbnail">
-                        <h3>365 Days</h3>
-                        <p>Daily Creative Discipline</p>
+                        <img src="images/thumbnails/365-thumbnail.webp" alt="365 Project Thumbnail">
+                        <div style="padding: 0 0.5rem;">
+                            <h3>365 Days</h3>
+                            <p>Daily Creative Discipline</p>
+                        </div>
                     </div>
                 </a>
                 
-                <a href="#" class="project-card-link">
+                <a href="#" class="project-card-link" style="cursor: default;">
                     <div class="project-card">
-                        <div style="width:100%; height:250px; background-color:#e0e0e0; display:flex; align-items:center; justify-content:center; color:var(--text-muted); border-radius:8px; margin-bottom:1.2rem;">
-                            <span>Coming Soon</span>
+                        <div style="background-color: #e0e0e0; height: 250px; border-radius: 8px; margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+                            <span style="color: #999; text-transform: uppercase; letter-spacing: 1px;">In Production</span>
                         </div>
-                        <h3>Cinematography</h3>
-                        <p>Narrative Film & Color Grading</p>
+                        <div style="padding: 0 0.5rem;">
+                            <h3>Cinematography</h3>
+                            <p>Narrative Film & Grading</p>
+                        </div>
                     </div>
                 </a>
 
             </div>
         </section>
+
+        <div class="section-alt reveal">
+            <section class="gear-section" style="margin-top: 0; border: none; padding-top: 0;">
+                <h2 style="margin-bottom: 3rem; color: var(--dark-green);">The Gear Locker</h2>
+                
+                <div class="gear-grid">
+                    
+                    <div class="gear-item">
+                        <h3>Camera Bodies</h3>
+                        <p>Canon 4000D</p>
+                        <p>Olympus OM-D E-M10 IV</p>
+                    </div>
+
+                    <div class="gear-item">
+                        <h3>Glass</h3>
+                        <p>Olympus 14-42mm EZ ED MSC</p>
+                        <p>Canon EFS 18-55mm</p>
+                        <p>Canon EF 75-300mm III</p>
+                    </div>
+
+                    <div class="gear-item">
+                        <h3>Post-Production</h3>
+                        <p>Affinity Photo 2</p>
+                        <p>Davinci Resolve</p>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
     </main>
 
-
-
-
     <footer>
-    <div class="social-links">
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">GitHub</a>
-        <a href="mailto:your@email.com">Email</a>
-    </div>
-    <p style="opacity: 0.6; font-size: 0.85rem;">© 2025 Alfred Duckworth</p>
-</footer>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="mailto:your@email.com">Email</a>
+        </div>
+        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

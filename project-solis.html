@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solis App - Alfred Duckworth</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22Arial, sans-serif%22 font-weight=%22bold%22 fill=%22black%22>A</text></svg>">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +14,12 @@
 
     <header>
         <nav>
-            <div class="logo">ALFRED DUCKWORTH</div>
+            <div class="logo">ALFRED DUCKWORTH <span class="status-dot"></span></div>
             <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Development</a></li> 
+                <li><a href="projects.html" class="active">Development</a></li> 
                 <li><a href="graphic-design.html">Graphic Design</a></li>
                 <li><a href="photography.html">Photography</a></li> 
                 <li><a href="contact.html">Contact</a></li>
@@ -28,63 +28,102 @@
         </nav>
     </header>
 
-    <main class="project-content">
+    <main>
 
-        <section class="project-header reveal">
-            <h1>Solis</h1>
-            <p class="project-subtitle">Full Stack Web App & Product Design</p>
+        <section class="project-header reveal" style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); margin-bottom: 1rem; font-size: 0.9rem;">Product Design & Dev</p>
+            <h1 style="font-size: 4rem; margin-bottom: 1rem;">Solis App</h1>
+            <p class="project-subtitle" style="font-size: 1.2rem; color: var(--text-muted);">A unified dashboard for personal growth and household management.</p>
         </section>
 
-        <section class="case-study-meta reveal">
-            <div class="meta-item">
-                <h4>Role</h4>
-                <p>Full Stack Dev</p>
-            </div>
-            <div class="meta-item">
-                <h4>Year</h4>
-                <p>2024</p>
-            </div>
-            <div class="meta-item">
-                <h4>Tech Stack</h4>
-                <p>Python (Flask), JS, SQL</p>
-            </div>
+        <section class="reveal-img" style="margin-bottom: 6rem;">
+            <img src="images/solis-hero.png" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-soft);" alt="Solis Dashboard Hero">
         </section>
 
-        <section class="reveal" style="margin-bottom: 4rem;">
-            <img src="images/solis-hero.png" style="width: 100%; border-radius: 4px;" alt="Solis Dashboard Hero">
-        </section>
-
-        <section class="case-study-content reveal">
+        <section class="about-grid" style="align-items: start; margin-bottom: 6rem;">
             
-            <h2>The Problem</h2>
-            <p>
-                Personal organization apps are often fragmented. A user might need one app for habit tracking, another for gym logs, and a third for shared family chores. This context switching creates friction. I wanted to build <strong>Solis</strong>: a unified "life OS" that brings personal growth and household management into a single, cohesive interface.
-            </p>
+            <div class="reveal" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-soft);">
+                <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; color: var(--dark-green);">Project Data</h3>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Role</h4>
+                    <p>Full Stack Developer</p>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Year</h4>
+                    <p>2024</p>
+                </div>
 
-            <h2>The Solution</h2>
-            <p>
-                Solis is a dashboard that simplifies complex data into digestible graphs. I focused heavily on high-contrast visuals for readability in bright environments and a responsive layout for mobile checking.
-            </p>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Tech Stack</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.2rem;">Python (Flask)</li>
+                        <li style="margin-bottom: 0.2rem;">SQLite Database</li>
+                        <li style="margin-bottom: 0.2rem;">Jinja2 & JS</li>
+                        <li style="margin-bottom: 0.2rem;">Chart.js</li>
+                    </ul>
+                </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0;">
-                <img src="images/solis-screen-dashboard.png" style="width: 100%; border-radius: 4px;" alt="Dashboard">
-                <img src="images/solis-screen-fitness.png" style="width: 100%; border-radius: 4px;" alt="Fitness">
+                <a href="#" target="_blank" class="cta-link magnetic-btn" style="width: 100%;">View on GitHub</a>
             </div>
 
+            <div class="case-study-content reveal">
+                <h2 style="margin-top: 0;">The Problem</h2>
+                <p>
+                    Personal organization apps are often fragmented. A user might need one app for habit tracking, another for gym logs, and a third for shared family chores. This context switching creates friction. I wanted to build <strong>Solis</strong>: a unified "life OS" that brings personal growth and household management into a single, cohesive interface.
+                </p>
+
+                <h2>The Solution</h2>
+                <p>
+                    Solis is a dashboard that simplifies complex data into digestible graphs. I focused heavily on high-contrast visuals for readability in bright environments and a responsive layout for mobile checking.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="reveal" style="background-color: #f0f2f1; margin-left: -50vw; margin-right: -50vw; left: 50%; right: 50%; width: 100vw; position: relative; padding: 6rem 0;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+                <h2 style="text-align: center; color: var(--dark-green); margin-bottom: 4rem;">Interface Design</h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+                    <div class="project-card reveal-img">
+                        <img src="images/solis-screen-dashboard.png" alt="Dashboard View">
+                        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Main Dashboard</p>
+                    </div>
+                    <div class="project-card reveal-img">
+                        <img src="images/solis-screen-fitness.png" alt="Fitness View">
+                        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Fitness Tracker</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-content reveal" style="max-width: 800px; margin: 6rem auto;">
             <h2>Key Features</h2>
             <p>The application handles complex logic behind a simple UI:</p>
-            <ul style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">
-                <li style="margin-bottom: 0.5rem;">— <strong>Household Sync:</strong> Users can invite family members to join their "Household," enabling a shared Shopping List and Chore Chart.</li>
-                <li style="margin-bottom: 0.5rem;">— <strong>Fitness Hub:</strong> Custom workout routines linked directly to habit completion logic.</li>
-                <li style="margin-bottom: 0.5rem;">— <strong>Smart Journaling:</strong> A "Win of the Day" prompt and daily reflection that saves to a history database.</li>
+            <ul style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 1rem; border-left: 2px solid var(--dark-green); padding-left: 1rem;">
+                    <strong>Household Sync:</strong> Users can invite family members to join their "Household," enabling a shared Shopping List and Chore Chart.
+                </li>
+                <li style="margin-bottom: 1rem; border-left: 2px solid var(--dark-green); padding-left: 1rem;">
+                    <strong>Fitness Hub:</strong> Custom workout routines linked directly to habit completion logic.
+                </li>
+                <li style="margin-bottom: 1rem; border-left: 2px solid var(--dark-green); padding-left: 1rem;">
+                    <strong>Smart Journaling:</strong> A "Win of the Day" prompt and daily reflection that saves to a history database.
+                </li>
             </ul>
 
             <h2>Outcome</h2>
             <p>
                 Solis is a fully functional web application. Building it enhanced my ability to think systematically—understanding how a button on the frontend interacts with the database model on the backend. It bridges the gap between visual design and software engineering.
             </p>
-
         </section>
+
+        <div style="text-align: center; margin: 6rem 0; border-top: 1px solid var(--border-color); padding-top: 4rem;">
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Next Project</p>
+            <a href="project-generator.html" style="font-size: 2rem; font-family: 'Playfair Display', serif; color: var(--dark-green); border-bottom: 2px solid transparent; transition: 0.3s;">SVG Shape Generator &rarr;</a>
+        </div>
 
     </main>
 
@@ -95,7 +134,7 @@
             <a href="#" target="_blank">GitHub</a>
             <a href="mailto:your@email.com">Email</a>
         </div>
-        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">© 2025 Alfred Duckworth.</p>
+        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

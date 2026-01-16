@@ -14,86 +14,167 @@
 
     <header>
         <nav>
-            <div class="logo">ALFRED DUCKWORTH</div>
+            <div class="logo">ALFRED DUCKWORTH <span class="status-dot"></span></div>
             <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Development</a></li>
                 <li><a href="graphic-design.html">Graphic Design</a></li>
-                <li><a href="photography.html">Photography</a></li>
+                <li><a href="photography.html" class="active">Photography</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="project-content">
+    <main>
 
-        <section class="project-header reveal">
-            <h1>Automotive</h1>
-            <p class="project-subtitle">Speed, Structure, and Color. <br><span style="font-size: 0.9rem; opacity: 0.7;">(Click any image to compare Raw vs. Edit)</span></p>
+        <section class="project-header reveal" style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); margin-bottom: 1rem; font-size: 0.9rem;">Visual Series</p>
+            <h1 style="font-size: 4rem; margin-bottom: 1rem;">Automotive</h1>
+            <p class="project-subtitle" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;">Speed, Structure, and Color.</p>
+            
+            <p style="font-size: 0.9rem; color: var(--text-muted); border-bottom: 1px solid var(--border-color); display: inline-block; padding-bottom: 0.5rem;">
+                Click any image to compare <strong>Raw vs. Edit</strong>
+            </p>
         </section>
 
-<section class="project-details reveal">
+        <section class="project-details">
             <div class="masonry-wrapper">
-
+                
                 <div class="masonry-column">
-                    <img src="photography/automotive/Edit/Fiat.webp" data-raw-src="photography/automotive/Raw/Fiat.webp" class="reveal" alt="Yellow Fiat" onclick="openSliderLightbox(this)">
-                    <img src="photography/automotive/Edit/Cool Car LIghts.webp" data-raw-src="photography/automotive/Raw/Cool Car LIghts.webp" class="reveal" alt="Long Exposure Traffic" onclick="openSliderLightbox(this)">
-                    <img src="photography/automotive/Edit/F1Car.webp" data-raw-src="photography/automotive/Raw/F1Car.webp" class="reveal" alt="F1 Race Car" onclick="openSliderLightbox(this)">
-                    <img src="photography/automotive/Edit/MAXI.webp" data-raw-src="photography/automotive/Raw/MAXI.webp" class="reveal" alt="Yellow Maxi Grille" onclick="openSliderLightbox(this)">
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/Fiat.webp" 
+                             data-raw-src="photography/automotive/Raw/Fiat.webp" 
+                             alt="Yellow Fiat" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/Cool Car LIghts.webp" 
+                             data-raw-src="photography/automotive/Raw/Cool Car LIghts.webp" 
+                             alt="Long Exposure Traffic" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/F1Car.webp" 
+                             data-raw-src="photography/automotive/Raw/F1Car.webp" 
+                             alt="F1 Race Car" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/MAXI.webp" 
+                             data-raw-src="photography/automotive/Raw/MAXI.webp" 
+                             alt="Yellow Maxi Grille" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
                 </div>
 
                 <div class="masonry-column">
-                    <img src="photography/automotive/Edit/Lincoln.webp" data-raw-src="photography/automotive/Raw/Lincoln.webp" class="reveal" alt="Green Lincoln Continental" onclick="openSliderLightbox(this)">
-                    <img src="photography/automotive/Edit/Cobra.webp" data-raw-src="photography/automotive/Raw/Cobra.webp" class="reveal" alt="Blue Cobra Headlight" onclick="openSliderLightbox(this)">
-                    <img src="photography/automotive/Edit/Volkswagen Beetle.webp" data-raw-src="photography/automotive/Raw/Volkswagen Beetle.webp" class="reveal" alt="Black and White Beetle" onclick="openSliderLightbox(this)">
-                    <img src="photography/automotive/Edit/Mazda.webp" data-raw-src="photography/automotive/Raw/Mazda.webp" class="reveal" alt="Blue Mazda Miata" onclick="openSliderLightbox(this)">
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/Lincoln.webp" 
+                             data-raw-src="photography/automotive/Raw/Lincoln.webp" 
+                             alt="Green Lincoln Continental" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/Cobra.webp" 
+                             data-raw-src="photography/automotive/Raw/Cobra.webp" 
+                             alt="Blue Cobra Headlight" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/Volkswagen Beetle.webp" 
+                             data-raw-src="photography/automotive/Raw/Volkswagen Beetle.webp" 
+                             alt="Black and White Beetle" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/Mazda.webp" 
+                             data-raw-src="photography/automotive/Raw/Mazda.webp" 
+                             alt="Blue Mazda Miata" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
                 </div>
 
                 <div class="masonry-column">
-                    <img src="photography/automotive/Edit/Old Car.webp" data-raw-src="photography/automotive/Raw/Old Car.webp" class="reveal" alt="Beige Classic Car" onclick="openSliderLightbox(this)">
-                    <img src="photography/automotive/Edit/Moustachtang.webp" data-raw-src="photography/automotive/Raw/Moustachtang.webp" class="reveal" alt="Red Mustang Rear" onclick="openSliderLightbox(this)">
-                    <img src="photography/automotive/Edit/FordEscort.webp" data-raw-src="photography/automotive/Raw/FordEscort.webp" class="reveal" alt="Black Ford Escort" onclick="openSliderLightbox(this)">
-                    <img src="photography/automotive/Edit/Beamer.webp" data-raw-src="photography/automotive/Raw/Beamer.webp" class="reveal" alt="White BMW Hood" onclick="openSliderLightbox(this)">
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/Old Car.webp" 
+                             data-raw-src="photography/automotive/Raw/Old Car.webp" 
+                             alt="Beige Classic Car" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/Moustachtang.webp" 
+                             data-raw-src="photography/automotive/Raw/Moustachtang.webp" 
+                             alt="Red Mustang Rear" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/FordEscort.webp" 
+                             data-raw-src="photography/automotive/Raw/FordEscort.webp" 
+                             alt="Black Ford Escort" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/automotive/Edit/Beamer.webp" 
+                             data-raw-src="photography/automotive/Raw/Beamer.webp" 
+                             alt="White BMW Hood" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
                 </div>
 
             </div>
         </section>
 
-        <section class="gear-section reveal">
-            <h2>The Toolkit</h2>
-            <div class="gear-grid">
-                <div class="gear-item">
-                    <h3>Camera</h3>
-                    <p>Fujifilm X-T5</p>
+        <div class="section-alt reveal">
+            <section class="gear-section" style="margin-top: 0; border: none; padding-top: 0;">
+                <h2 style="margin-bottom: 3rem; color: var(--dark-green);">The Toolkit</h2>
+                
+                <div class="gear-grid">
+                    
+                    <div class="gear-item">
+                        <h3>Camera Bodies</h3>
+                        <p>Canon 4000D</p>
+                        <p>Olympus OM-D E-M10 IV</p>
+                    </div>
+
+                    <div class="gear-item">
+                        <h3>Glass</h3>
+                        <p>Olympus 14-42mm EZ ED MSC</p>
+                        <p>Canon EFS 18-55mm</p>
+                        <p>Canon EF 75-300mm III</p>
+                    </div>
+
+                    <div class="gear-item">
+                        <h3>Post-Production</h3>
+                        <p>Affinity Photo 2</p>
+                        <p>Davinci Resolve</p>
+                    </div>
+
                 </div>
-                <div class="gear-item">
-                    <h3>Prime Lens</h3>
-                    <p>35mm f/1.4</p>
-                </div>
-                <div class="gear-item">
-                    <h3>Editing</h3>
-                    <p>Lightroom & Photoshop</p>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
+
+        <div style="text-align: center; margin: 6rem 0; padding-top: 4rem;">
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Next Collection</p>
+            <a href="project-buildings.html" style="font-size: 2rem; font-family: 'Playfair Display', serif; color: var(--dark-green); border-bottom: 2px solid transparent; transition: 0.3s;">Architecture &rarr;</a>
+        </div>
 
     </main>
 
     <div id="lightbox" class="lightbox">
-        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <div class="close-btn" onclick="closeLightbox()">&times;</div>
         
-   <div class="lightbox-slider-wrapper">
-     <img id="lb-img-before" class="lb-img-layer lb-img-before" src="" alt="Raw Version">
-    <img id="lb-img-after" class="lb-img-layer lb-img-after" src="" alt="Edited Version">
-    
-    <span class="lb-label lb-label-before">RAW</span>
-    <span class="lb-label lb-label-after">EDIT</span>
-
-    <input type="range" min="0" max="100" value="50" class="lb-comparison-range" id="lb-comparison-range">
-</div>
+        <div class="lightbox-slider-wrapper">
+            <img id="lb-img-after" class="lb-img-layer lb-img-after" src="" alt="Edited Version">
+            <img id="lb-img-before" class="lb-img-layer lb-img-before" src="" alt="Raw Version">
+            
+            <span class="lb-label lb-label-before">RAW</span>
+            <span class="lb-label lb-label-after">EDIT</span>
+            
+            <input type="range" min="0" max="100" value="50" class="lb-comparison-range" id="lb-comparison-range">
+        </div>
     </div>
 
     <footer>
@@ -103,7 +184,7 @@
             <a href="#" target="_blank">GitHub</a>
             <a href="mailto:your@email.com">Email</a>
         </div>
-        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">© 2025 Alfred Duckworth. All rights reserved.</p>
+        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

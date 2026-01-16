@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Alfred Duckworth</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22Arial, sans-serif%22 font-weight=%22bold%22 fill=%22black%22>A</text></svg>">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
     <header>
         <nav>
-            <div class="logo">ALFRED DUCKWORTH</div>
+            <div class="logo">ALFRED DUCKWORTH <span class="status-dot"></span></div>
             <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -22,55 +22,74 @@
                 <li><a href="projects.html">Development</a></li>
                 <li><a href="graphic-design.html">Graphic Design</a></li>
                 <li><a href="photography.html">Photography</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
                 <li><a href="resume.pdf" target="_blank" class="resume-link">Resume</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="contact-content reveal">
-        
-        <div class="contact-container">
-            <h1 style="text-align: center; margin-bottom: 1rem;">Let's Create.</h1>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">I am currently open for new projects. Tell me about your idea.</p>
-        
+    <main>
+
+        <section class="hero reveal">
+            <h1>Let's Start a<br>Conversation.</h1>
+            <p>I am currently open for freelance projects and collaborations.<br>Tell me about your vision.</p>
+        </section>
+
+        <div class="contact-container reveal" style="transition-delay: 0.2s;">
+            
             <form class="contact-form" action="#" method="POST">
                 
-                <div class="form-group">
-                    <label>I am interested in:</label>
-                    <div class="checkbox-group">
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="interest" value="web-design">
-                            <span>Web Design</span>
-                        </label>
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="interest" value="photography">
-                            <span>Photography</span>
-                        </label>
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="interest" value="collaboration">
-                            <span>Collaboration</span>
-                        </label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="How should I address you?" required>
+                    <label>What are you interested in?</label>
+                    <div class="checkbox-group">
+                        
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="interest" value="development">
+                            <span>Web Development</span>
+                        </label>
+
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="interest" value="graphic-design">
+                            <span>Graphic Design</span>
+                        </label>
+
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="interest" value="photography">
+                            <span>Photography</span>
+                        </label>
+
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="interest" value="branding">
+                            <span>Brand Identity</span>
+                        </label>
+
+                    </div>
                 </div>
-                
+
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    <label for="message">Project Details</label>
+                    <textarea id="message" name="message" placeholder="Tell me about the goals, timeline, and scope..." required></textarea>
                 </div>
-                
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Tell me a bit about the project..." required></textarea>
-                </div>
-                
-                <button type="submit" class="btn-submit">Send Request</button>
+
+                <button type="submit" class="btn-submit magnetic-btn" style="margin-top: 1rem;">Send Inquiry</button>
+
             </form>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+                <p>Prefer email? <a href="mailto:your@email.com" style="color: var(--dark-green); font-weight: 600; border-bottom: 1px solid var(--dark-green);">your@email.com</a></p>
+            </div>
+
         </div>
 
     </main>
@@ -82,7 +101,7 @@
             <a href="#" target="_blank">GitHub</a>
             <a href="mailto:your@email.com">Email</a>
         </div>
-        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">© 2025 Alfred Duckworth.</p>
+        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
