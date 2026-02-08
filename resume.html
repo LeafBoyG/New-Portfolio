@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Alfred Duckworth</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Resume Specific Styles */
+        .resume-container { max-width: 800px; margin: 0 auto; background: white; padding: 4rem; box-shadow: var(--shadow-soft); border-radius: 8px; }
+        .resume-header { border-bottom: 2px solid var(--dark-green); padding-bottom: 2rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; }
+        .resume-section { margin-bottom: 3rem; }
+        .resume-section h3 { color: var(--dark-green); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 1.5rem; border-left: 3px solid var(--dark-green); padding-left: 1rem; }
+        .job-item { margin-bottom: 2rem; }
+        .job-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+        .job-title { font-weight: 700; font-size: 1.1rem; }
+        .job-date { color: var(--text-muted); font-family: monospace; }
+        .job-company { font-style: italic; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .job-details li { margin-bottom: 0.5rem; color: var(--text-main); font-size: 0.95rem; }
+        
+        @media (max-width: 768px) {
+            .resume-container { padding: 2rem; }
+            .resume-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">ALFRED DUCKWORTH <span class="status-dot"></span></div>
+            <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Development</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="resume.html" class="active">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="resume-container reveal">
+            
+            <div class="resume-header">
+                <div>
+                    <h1 style="font-size: 2.5rem; line-height: 1;">Alfred<br>Duckworth</h1>
+                    <p style="margin-top: 0.5rem; color: var(--text-muted);">Digital Craftsman • Developer • Photographer</p>
+                </div>
+                <a href="resume.pdf" download class="cta-button magnetic-btn">Download PDF</a>
+            </div>
+
+            <div class="resume-section">
+                <h3>Experience</h3>
+                
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="job-title">Freelance Web Developer</span>
+                        <span class="job-date">2023 – Present</span>
+                    </div>
+                    <div class="job-company">Self-Employed</div>
+                    <ul class="job-details">
+                        <li>Designed and developed the <strong>Solis App</strong>, a full-stack household management system using Python/Flask.</li>
+                        <li>Built high-performance portfolio sites for creatives using semantic HTML5 and vanilla JavaScript.</li>
+                        <li>Implemented responsive layouts and custom animation engines without external libraries.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="job-title">Photographer</span>
+                        <span class="job-date">2020 – Present</span>
+                    </div>
+                    <div class="job-company">Freelance</div>
+                    <ul class="job-details">
+                        <li>Specialized in automotive and street photography, focusing on high-contrast visual storytelling.</li>
+                        <li>Managed end-to-end post-production workflows using Lightroom and Davinci Resolve.</li>
+                        <li>Completed "Project 365," demonstrating long-term discipline and creative consistency.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Technical Skills</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <strong>Development</strong>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">HTML5, CSS3, JavaScript (ES6+), Python, Flask, SQL, Git.</p>
+                    </div>
+                    <div>
+                        <strong>Design & Creative</strong>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Figma, Affinity Designer, DaVinci Resolve, Lightroom, UI/UX.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Education</h3>
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="job-title">Relevant Coursework / Degree</span>
+                        <span class="job-date">2020 – 2023</span>
+                    </div>
+                    <div class="job-company">University / Institution Name</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
