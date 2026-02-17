@@ -45,15 +45,33 @@
                 
                 <div class="masonry-column">
                     <div class="reveal">
+                        <img src="photography/street/Edit/AlleyWay.webp" 
+                             data-raw-src="photography/street/Raw/AlleyWay.webp" 
+                             alt="Alley Way" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
                         <img src="photography/street/Edit/BlackAndWhiteAlley.webp" 
                              data-raw-src="photography/street/Raw/BlackAndWhiteAlley.webp" 
                              alt="Black and White Alley" 
                              onclick="openSliderLightbox(this)">
                     </div>
                     <div class="reveal">
+                        <img src="photography/street/Edit/BusStop.webp" 
+                             data-raw-src="photography/street/Raw/BusStop.webp" 
+                             alt="Bus Stop" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
                         <img src="photography/street/Edit/BlackAndWhiteFence.webp" 
                              data-raw-src="photography/street/Raw/BlackAndWhiteFence.webp" 
                              alt="Black and White Fence" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/street/Edit/CycleInSun.webp" 
+                             data-raw-src="photography/street/Raw/CycleInSun.webp" 
+                             alt="Cycle In Sun" 
                              onclick="openSliderLightbox(this)">
                     </div>
                     <div class="reveal">
@@ -72,9 +90,21 @@
 
                 <div class="masonry-column">
                     <div class="reveal">
+                        <img src="photography/street/Edit/DudeWalking.webp" 
+                             data-raw-src="photography/street/Raw/DudeWalking.webp" 
+                             alt="Dude Walking" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
                         <img src="photography/street/Edit/GrafitiOnWall.webp" 
                              data-raw-src="photography/street/Raw/GrafitiOnWall.webp" 
                              alt="Graffiti Art" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/street/Edit/dudewalkingonstreet.webp" 
+                             data-raw-src="photography/street/Raw/dudewalkingonstreet.webp" 
+                             alt="Dude Walking On Street" 
                              onclick="openSliderLightbox(this)">
                     </div>
                     <div class="reveal">
@@ -84,9 +114,21 @@
                              onclick="openSliderLightbox(this)">
                     </div>
                     <div class="reveal">
+                        <img src="photography/street/Edit/ManWalkingOnStreet.webp" 
+                             data-raw-src="photography/street/Raw/ManWalkingOnStreet.webp" 
+                             alt="Man Walking On Street" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
                         <img src="photography/street/Edit/Pillars.webp" 
                              data-raw-src="photography/street/Raw/Pillars.webp" 
                              alt="Architecture Pillars" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/street/Edit/ManWithBlanket.webp" 
+                             data-raw-src="photography/street/Raw/ManWithBlanket.webp" 
+                             alt="Man With Blanket" 
                              onclick="openSliderLightbox(this)">
                     </div>
                     <div class="reveal">
@@ -99,15 +141,33 @@
 
                 <div class="masonry-column">
                     <div class="reveal">
+                        <img src="photography/street/Edit/REDLIGHTMANFORE.webp" 
+                             data-raw-src="photography/street/Raw/REDLIGHTMANFORE.webp" 
+                             alt="Red Light Man" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
                         <img src="photography/street/Edit/RetroStyle.webp" 
                              data-raw-src="photography/street/Raw/RetroStyle.webp" 
                              alt="Retro Style Scene" 
                              onclick="openSliderLightbox(this)">
                     </div>
                     <div class="reveal">
+                        <img src="photography/street/Edit/reflectionWithBus.webp" 
+                             data-raw-src="photography/street/Raw/reflectionWithBus.webp" 
+                             alt="Reflection With Bus" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
                         <img src="photography/street/Edit/StreetLampAndCAr.webp" 
                              data-raw-src="photography/street/Raw/StreetLampAndCAr.webp" 
                              alt="Street Lamp and Car" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/street/Edit/RetroPerson.webp" 
+                             data-raw-src="photography/street/Raw/RetroPerson.webp" 
+                             alt="Retro Person" 
                              onclick="openSliderLightbox(this)">
                     </div>
                     <div class="reveal">
@@ -134,8 +194,12 @@
 
     </main>
 
-    <div id="lightbox" class="lightbox">
+<div id="lightbox" class="lightbox">
         <div class="close-btn" onclick="closeLightbox()">&times;</div>
+        
+        <button class="lightbox-nav prev-btn" onclick="changeLightboxImage(-1)">&#10094;</button>
+        <button class="lightbox-nav next-btn" onclick="changeLightboxImage(1)">&#10095;</button>
+        
         <div class="lightbox-slider-wrapper">
             <img id="lb-img-after" class="lb-img-layer lb-img-after" src="" alt="Edited Version">
             <img id="lb-img-before" class="lb-img-layer lb-img-before" src="" alt="Raw Version">

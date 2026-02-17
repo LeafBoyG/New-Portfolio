@@ -68,9 +68,21 @@
                              alt="Modern Apartment" 
                              onclick="openSliderLightbox(this)">
                     </div>
+                    <div class="reveal">
+                        <img src="photography/buildings/Edit/GlowlyLight.webp" 
+                             data-raw-src="photography/buildings/Raw/GlowlyLight.webp" 
+                             alt="Glowing Light" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
                 </div>
 
                 <div class="masonry-column">
+                    <div class="reveal">
+                        <img src="photography/buildings/Edit/CoolLookingCornerBuilding.webp" 
+                             data-raw-src="photography/buildings/Raw/CoolLookingCornerBuilding.webp" 
+                             alt="Corner Building" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
                     <div class="reveal">
                         <img src="photography/buildings/Edit/ThePhoneLondon.webp" 
                              data-raw-src="photography/buildings/Raw/ThePhoneLondon.webp" 
@@ -99,6 +111,12 @@
 
                 <div class="masonry-column">
                     <div class="reveal">
+                        <img src="photography/buildings/Edit/THEARTTOWER.webp" 
+                             data-raw-src="photography/buildings/Raw/THEARTTOWER.webp" 
+                             alt="The Art Tower" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
                         <img src="photography/buildings/Edit/StairWell.webp" 
                              data-raw-src="photography/buildings/Raw/StairWell.webp" 
                              alt="Stairwell Perspective" 
@@ -117,9 +135,9 @@
                              onclick="openSliderLightbox(this)">
                     </div>
                     <div class="reveal">
-                        <img src="photography/buildings/Edit/THEARTTOWER.webp" 
-                             data-raw-src="photography/buildings/Raw/THEARTTOWER.webp" 
-                             alt="The Art Tower" 
+                        <img src="photography/buildings/Edit/HalftoneStreet.webp" 
+                             data-raw-src="photography/buildings/Raw/HalftoneStreet.webp" 
+                             alt="Halftone Street" 
                              onclick="openSliderLightbox(this)">
                     </div>
                 </div>
@@ -134,8 +152,12 @@
 
     </main>
 
-    <div id="lightbox" class="lightbox">
+<div id="lightbox" class="lightbox">
         <div class="close-btn" onclick="closeLightbox()">&times;</div>
+        
+        <button class="lightbox-nav prev-btn" onclick="changeLightboxImage(-1)">&#10094;</button>
+        <button class="lightbox-nav next-btn" onclick="changeLightboxImage(1)">&#10095;</button>
+        
         <div class="lightbox-slider-wrapper">
             <img id="lb-img-after" class="lb-img-layer lb-img-after" src="" alt="Edited Version">
             <img id="lb-img-before" class="lb-img-layer lb-img-before" src="" alt="Raw Version">

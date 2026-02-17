@@ -121,7 +121,13 @@
                              data-raw-src="photography/automotive/Raw/Beamer.webp" 
                              alt="White BMW Hood" 
                              onclick="openSliderLightbox(this)">
-                    </div>
+                     </div>
+                  <div class="reveal">
+                        <img src="photography/automotive/Edit/OldFilmPhotoOfCar.webp" 
+                             data-raw-src="photography/automotive/Raw/OldFilmPhotoOfCar.webp" 
+                             alt="White BMW Hood" 
+                             onclick="openSliderLightbox(this)">
+                   
                 </div>
 
             </div>
@@ -163,16 +169,17 @@
 
     </main>
 
-    <div id="lightbox" class="lightbox">
+<div id="lightbox" class="lightbox">
         <div class="close-btn" onclick="closeLightbox()">&times;</div>
+        
+        <button class="lightbox-nav prev-btn" onclick="changeLightboxImage(-1)">&#10094;</button>
+        <button class="lightbox-nav next-btn" onclick="changeLightboxImage(1)">&#10095;</button>
         
         <div class="lightbox-slider-wrapper">
             <img id="lb-img-after" class="lb-img-layer lb-img-after" src="" alt="Edited Version">
             <img id="lb-img-before" class="lb-img-layer lb-img-before" src="" alt="Raw Version">
-            
             <span class="lb-label lb-label-before">RAW</span>
             <span class="lb-label lb-label-after">EDIT</span>
-            
             <input type="range" min="0" max="100" value="50" class="lb-comparison-range" id="lb-comparison-range">
         </div>
     </div>
