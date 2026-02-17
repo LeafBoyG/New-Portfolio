@@ -666,37 +666,74 @@ footer {
     }
 }
 
-/* --- : Lightbox Navigation Arrows --- */
-.lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    padding: 1rem;
-    cursor: pointer;
-    z-index: 2001;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
+/* =========================================
+   APP-STYLE SCROLL LIGHTBOX (Fixed Peeking)
+   ========================================= */
+
+/* The fade effect at the top and bottom */
+.lightbox::before,
+.lightbox::after {
+    content: "";
+    position: absolute; 
+    left: 0;
+    width: 100%;
+    height: 12vh; /* Shorter gradient so it doesn't hide the images */
+    z-index: 2010; 
+    pointer-events: none; 
+}
+
+.lightbox::before {
+    top: 0;
+    /* Fades from solid dark green to transparent */
+    background: linear-gradient(to bottom, rgba(15, 62, 41, 1) 0%, transparent 100%);
+}
+
+.lightbox::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(15, 62, 41, 1) 0%, transparent 100%);
+}
+
+.lightbox-track {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    
+    /* Padding allows the very first and very last image to reach the center */
+    padding: 15vh 0; 
+    
+    /* The exact space between each photo */
+    gap: 4vh; 
+}
+
+/* Hide the ugly scrollbar for a clean app look */
+.lightbox-track::-webkit-scrollbar { display: none; }
+.lightbox-track { -ms-overflow-style: none; scrollbar-width: none; }
+
+.lightbox-slide {
+    /* 65vh makes the image small enough that neighbors can peek in */
+    flex: 0 0 65vh; 
+    width: 100%;
+    height: 65vh;
+    scroll-snap-align: center; /* Snaps perfectly to the middle */
+    display: flex;
     justify-content: center;
-    transition: background 0.3s ease;
+    align-items: center;
 }
 
-.lightbox-nav:hover { 
-    background: var(--dark-green); 
-}
-
-.prev-btn { left: 20px; }
-.next-btn { right: 20px; }
-
-/* Mobile resizing for arrows */
-@media (max-width: 768px) {
-    .lightbox-nav { width: 40px; height: 40px; font-size: 1.2rem; }
-    .prev-btn { left: 10px; }
-    .next-btn { right: 10px; }
+.slide-content {
+    position: relative; 
+    width: 90vw; 
+    max-width: 1200px; /* Prevents it from getting too huge on 4k monitors */
+    height: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    border-radius: 6px; /* A slight rounding makes it look like a floating card */
+    background-color: rgba(0,0,0,0.2); /* Slight dark backing */
 }

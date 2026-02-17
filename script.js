@@ -96,110 +96,101 @@ function initAnimations() {
 }
 
 // =========================================
-// 3. LIGHTBOX, SLIDER & GALLERY LOGIC 
+// 3. APP-STYLE SCROLL LIGHTBOX LOGIC
 // =========================================
-
-let currentGalleryImages = [];
-let currentImageIndex = 0;
 
 window.openSliderLightbox = function(element) {
     const lightbox = document.getElementById('lightbox');
+    const track = document.getElementById('lightbox-track');
     
-    // Find all images in the gallery so we can scroll through them
-    currentGalleryImages = Array.from(document.querySelectorAll('.masonry-wrapper img'));
+    // 1. Clear the track every time we open it
+    track.innerHTML = ''; 
+
+    // 2. Find all images in the masonry grid
+    const galleryImages = Array.from(document.querySelectorAll('.masonry-wrapper img'));
     
-    // Find the number (index) of the image we just clicked
-    currentImageIndex = currentGalleryImages.indexOf(element);
+    // 3. Find which image the user clicked
+    const startIndex = galleryImages.indexOf(element);
 
-    // Load the image into the lightbox
-    updateLightboxContent();
+    // 4. Build the vertical feed dynamically
+    galleryImages.forEach((img) => {
+        const editSrc = img.getAttribute('src');
+        const rawSrc = img.getAttribute('data-raw-src') || editSrc;
 
-    // Show the lightbox
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Lock background scroll
-};
+        // Create a new slide container
+        const slide = document.createElement('div');
+        slide.className = 'lightbox-slide';
 
-window.changeLightboxImage = function(direction) {
-    if (currentGalleryImages.length === 0) return;
-    
-    // Change the index (+1 for next, -1 for prev)
-    currentImageIndex += direction;
-    
-    // Loop around if we hit the end or beginning
-    if (currentImageIndex < 0) {
-        currentImageIndex = currentGalleryImages.length - 1;
-    } else if (currentImageIndex >= currentGalleryImages.length) {
-        currentImageIndex = 0;
-    }
-    
-    updateLightboxContent();
-};
+        // Inject the image and slider HTML
+        slide.innerHTML = `
+            <div class="slide-content">
+                <img class="lb-img-layer lb-img-after" src="${editSrc}" alt="Edited Version">
+                <img class="lb-img-layer lb-img-before" src="${rawSrc}" alt="Raw Version" style="clip-path: inset(0 50% 0 0);">
+                <span class="lb-label lb-label-before">RAW</span>
+                <span class="lb-label lb-label-after">EDIT</span>
+                <input type="range" min="0" max="100" value="50" class="lb-comparison-range">
+            </div>
+        `;
 
-function updateLightboxContent() {
-    const lbImgBefore = document.getElementById('lb-img-before');
-    const lbImgAfter = document.getElementById('lb-img-after');
-    const lbRangeInput = document.getElementById('lb-comparison-range');
-    
-    // Get the new image based on our current index
-    const element = currentGalleryImages[currentImageIndex];
-    
-    // Safety check
-    if (!element || !lbImgBefore || !lbImgAfter) return;
+        // 5. Add the Before/After slider logic for THIS specific slide
+        const range = slide.querySelector('.lb-comparison-range');
+        const imgBefore = slide.querySelector('.lb-img-before');
 
-    // Get Sources
-    const editSrc = element.getAttribute('src');
-    const rawSrc = element.getAttribute('data-raw-src');
+        range.addEventListener('input', (e) => {
+            imgBefore.style.clipPath = `inset(0 ${100 - e.target.value}% 0 0)`;
+        });
 
-    // Set Images
-    lbImgAfter.src = editSrc;
-    lbImgBefore.src = rawSrc ? rawSrc : editSrc;
-
-    // Reset Slider Position to exactly 50%
-    if (lbRangeInput) {
-        lbRangeInput.value = 50;
-        lbImgBefore.style.clipPath = "inset(0 50% 0 0)";
-        
-        // Desktop Input
-        lbRangeInput.oninput = (e) => {
-            lbImgBefore.style.clipPath = `inset(0 ${100 - e.target.value}% 0 0)`;
-        };
-        
-        // Touch Input
-        lbRangeInput.ontouchmove = (e) => {
-            const rect = lbRangeInput.getBoundingClientRect();
+        // Touch support for mobile swiping on the slider
+        range.addEventListener('touchmove', (e) => {
+            const rect = range.getBoundingClientRect();
             const touchX = e.touches[0].clientX;
             let percent = ((touchX - rect.left) / rect.width) * 100;
             percent = Math.max(0, Math.min(100, percent));
-            
-            lbImgBefore.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-            lbRangeInput.value = percent;
-        };
-    }
-}
+            imgBefore.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+            range.value = percent;
+        });
+
+        // Add the finished slide to the track
+        track.appendChild(slide);
+    });
+
+    // 6. Show the Lightbox and lock the background
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+// 7. Instantly center the feed on the picture the user clicked
+    setTimeout(() => {
+        // Find the specific slide we want
+        const targetSlide = track.children[startIndex];
+        if (targetSlide) {
+            // Tell the browser to center it instantly
+            targetSlide.scrollIntoView({ behavior: 'instant', block: 'center' });
+        }
+    }, 10);
+};
 
 window.closeLightbox = function() {
     const lightbox = document.getElementById('lightbox');
+    const track = document.getElementById('lightbox-track');
     if (lightbox) {
         lightbox.classList.remove('active');
         document.body.style.overflow = 'auto'; // Unlock background scroll
+        
+        // Wait for fade out, then clear memory
+        setTimeout(() => { track.innerHTML = ''; }, 300);
     }
 };
 
-// Close on background click
+// Close when clicking the dark background (outside the image)
 document.addEventListener('click', (e) => {
-    const lightbox = document.getElementById('lightbox');
-    // If we click the dark background (not the image or buttons), close it
-    if (lightbox && e.target === lightbox) {
+    if (e.target.classList.contains('lightbox-slide') || e.target.id === 'lightbox') {
         window.closeLightbox();
     }
 });
 
-// Keyboard Controls (Arrows to scroll, Escape to close)
+// Close with Escape key
 document.addEventListener('keydown', (e) => {
-    const lightbox = document.getElementById('lightbox');
-    if (lightbox && lightbox.classList.contains('active')) {
-        if (e.key === "Escape") window.closeLightbox();
-        if (e.key === "ArrowLeft") window.changeLightboxImage(-1);
-        if (e.key === "ArrowRight") window.changeLightboxImage(1);
+    if (e.key === "Escape") {
+        window.closeLightbox();
     }
 });
