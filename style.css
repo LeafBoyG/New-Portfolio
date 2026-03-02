@@ -1375,3 +1375,338 @@ html, body {
 .card-content {
     padding: 0 0.5rem;
 }
+
+/* =========================================
+   ABOUT PAGE COMPONENTS
+   ========================================= */
+
+.about-hero-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+}
+
+.about-img-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-frame-size {
+    max-width: 380px;
+    width: 100%;
+}
+
+.about-headline {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: var(--dark-green);
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+.about-lead-text {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.about-divider {
+    width: 50px;
+    height: 2px;
+    background: var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.about-subheading {
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.about-cta-wrapper {
+    margin-top: 2.5rem;
+}
+
+.tech-spec-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.tech-spec-title {
+    text-align: left;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    margin-top: 0;
+}
+
+/* =========================================
+   DEVELOPMENT PAGE COMPONENTS
+   ========================================= */
+
+.section-heading-accent {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    padding-left: 10px;
+    border-left: 3px solid var(--dark-green);
+}
+
+/* Custom Placeholder Card for Dev Projects */
+.placeholder-card-img {
+    background-color: #e0e0e0;
+    height: 250px;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+}
+.placeholder-icon {
+    font-family: monospace;
+    color: #888;
+    font-size: 1.2rem;
+}
+.placeholder-label {
+    color: #999;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Current Stack Section */
+.stack-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+.stack-title {
+    margin-bottom: 3rem;
+    color: var(--dark-green);
+}
+.stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+}
+.stack-col {
+    text-align: left;
+}
+.stack-col-title {
+    color: var(--dark-green);
+    border-bottom: 2px solid var(--dark-green);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+.stack-list {
+    list-style: none;
+    color: var(--text-muted);
+    padding: 0;
+    margin: 0;
+}
+.stack-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   GRAPHIC DESIGN INDEX COMPONENTS
+   ========================================= */
+
+/* Small helper to flip the grid on desktop but keep it normal on mobile */
+@media (min-width: 769px) {
+    .grid-reverse { direction: rtl; }
+    .grid-reverse > * { direction: ltr; }
+}
+
+.design-mockup {
+    background-color: #EAEAEA; 
+    aspect-ratio: 4/3; 
+    border-radius: 12px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border: 1px dashed var(--border-color);
+    color: var(--text-muted);
+    font-family: monospace;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.design-item-wrapper {
+    align-items: center;
+    margin-bottom: 8rem;
+}
+
+.design-item-text-reversed {
+    padding-left: 2rem;
+}
+
+.design-item-number {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dark-green);
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    margin-top: 0;
+}
+
+.design-item-title {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+.design-item-brief {
+    margin-bottom: 1rem;
+}
+
+.design-item-focus {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.design-item-btn {
+    display: inline-block;
+}
+
+/* =========================================
+   DEV CASE STUDY COMPONENTS (Solis, Generator)
+   ========================================= */
+
+.full-width-btn {
+    width: 100%;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Full-bleed background section */
+.full-bleed-section {
+    background-color: #f0f2f1;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    left: 50%;
+    right: 50%;
+    width: 100vw;
+    position: relative;
+    padding: 6rem 0;
+}
+
+.interface-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.interface-title {
+    text-align: center;
+    color: var(--dark-green);
+    margin-bottom: 4rem;
+    margin-top: 0;
+}
+
+.interface-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.interface-caption {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.case-study-centered {
+    max-width: 800px;
+    margin: 6rem auto;
+}
+
+/* Custom styled list for Key Features */
+.feature-list {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-list-item {
+    margin-bottom: 1rem;
+    border-left: 2px solid var(--dark-green);
+    padding-left: 1rem;
+}
+
+/* Mobile Stacking for the interface screenshots */
+@media (max-width: 768px) {
+    .interface-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Specific overrides for the Generator UI mockup */
+.transparent-card {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.ui-caption {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================
+   SLIDING PAGE TRANSITION (Pure CSS)
+   ========================================= */
+
+/* The curtain covers the screen instantly on load, then drops */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--dark-green);
+    z-index: 99999;
+    pointer-events: none;
+    /* Starts covering, slides down to reveal */
+    animation: slideDownReveal 0.6s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* The class JS adds to pull the curtain back UP */
+body.slide-up-active::before {
+    /* Starts at the bottom, pulls up to cover */
+    animation: slideUpCover 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes slideDownReveal {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes slideUpCover {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+}

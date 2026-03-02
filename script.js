@@ -33,6 +33,49 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =========================================
+// SLIDING OVERLAY PAGE TRANSITION
+// =========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('a');
+
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            const target = link.getAttribute('target');
+
+            // Only trigger the wipe for internal website links
+            if (
+                href && 
+                !href.startsWith('mailto:') && 
+                !href.startsWith('#') && 
+                target !== '_blank' &&
+                link.hostname === window.location.hostname
+            ) {
+                e.preventDefault();
+                const destination = link.href;
+
+                // Add the class to pull the curtain UP
+                document.body.classList.add('slide-up-active');
+
+                // Wait for the slide to hit the top, then navigate
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 500); 
+            }
+        });
+    });
+});
+
+// The Safari/Chrome Back Button Fix
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        // If they hit the back button, remove the class so the curtain drops back down
+        document.body.classList.remove('slide-up-active');
+    }
+});
+
+// =========================================
 // 2. VISUAL FX ENGINE (Scroll, Tilt, Magnet)
 // =========================================
 
@@ -217,6 +260,8 @@ document.addEventListener('click', (e) => {
         window.closeLightbox();
     }
 });
+
+
 
 // Close with Escape key
 document.addEventListener('keydown', (e) => {

@@ -30,42 +30,42 @@
 
     <main>
 
-        <section class="project-header reveal" style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); margin-bottom: 1rem; font-size: 0.9rem;">Product Design & Dev</p>
-            <h1 style="font-size: 4rem; margin-bottom: 1rem;">Solis App</h1>
-            <p class="project-subtitle" style="font-size: 1.2rem; color: var(--text-muted);">A unified dashboard for personal growth and household management.</p>
+        <section class="page-header-container reveal">
+            <p class="eyebrow-text">Product Design & Dev</p>
+            <h1 class="page-title">Solis App</h1>
+            <p class="project-subtitle">A unified dashboard for personal growth and household management.</p>
         </section>
 
-        <section class="reveal-img" style="margin-bottom: 6rem;">
-            <img src="images/solis-hero.png" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-soft);" alt="Solis Dashboard Hero">
+        <section class="case-study-hero-container reveal-img">
+            <img src="images/solis-hero.png" class="case-study-hero-img" alt="Solis Dashboard Hero">
         </section>
 
-        <section class="about-grid" style="align-items: start; margin-bottom: 6rem;">
+        <section class="about-grid case-study-grid">
             
-            <div class="reveal" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-soft);">
-                <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; color: var(--dark-green);">Project Data</h3>
+            <div class="project-data-card reveal">
+                <h3 class="data-card-title">Project Data</h3>
                 
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Role</h4>
-                    <p>Full Stack Developer</p>
+                <div class="data-card-group">
+                    <h4 class="data-card-label">Role</h4>
+                    <p style="margin: 0;">Full Stack Developer</p>
                 </div>
                 
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Year</h4>
-                    <p>2024</p>
+                <div class="data-card-group">
+                    <h4 class="data-card-label">Year</h4>
+                    <p style="margin: 0;">2024</p>
                 </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Tech Stack</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.2rem;">Python (Flask)</li>
-                        <li style="margin-bottom: 0.2rem;">SQLite Database</li>
-                        <li style="margin-bottom: 0.2rem;">Jinja2 & JS</li>
-                        <li style="margin-bottom: 0.2rem;">Chart.js</li>
+                <div class="data-card-group">
+                    <h4 class="data-card-label">Tech Stack</h4>
+                    <ul class="data-card-list">
+                        <li>Python (Flask)</li>
+                        <li>SQLite Database</li>
+                        <li>Jinja2 & JS</li>
+                        <li>Chart.js</li>
                     </ul>
                 </div>
 
-                <a href="#" target="_blank" class="cta-link magnetic-btn" style="width: 100%;">View on GitHub</a>
+                <a href="#" target="_blank" class="cta-link magnetic-btn full-width-btn">View on GitHub</a>
             </div>
 
             <div class="case-study-content reveal">
@@ -82,34 +82,35 @@
 
         </section>
 
-        <section class="reveal" style="background-color: #f0f2f1; margin-left: -50vw; margin-right: -50vw; left: 50%; right: 50%; width: 100vw; position: relative; padding: 6rem 0;">
-            <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h2 style="text-align: center; color: var(--dark-green); margin-bottom: 4rem;">Interface Design</h2>
+        <section class="full-bleed-section reveal">
+            <div class="interface-container">
+                <h2 class="interface-title">Interface Design</h2>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <div class="interface-grid">
                     <div class="project-card reveal-img">
-                        <img src="images/solis-screen-dashboard.png" alt="Dashboard View">
-                        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Main Dashboard</p>
+                        <img src="images/solis-screen-dashboard.png" alt="Dashboard View" style="width: 100%; border-radius: 8px;">
+                        <p class="interface-caption">Main Dashboard</p>
                     </div>
                     <div class="project-card reveal-img">
-                        <img src="images/solis-screen-fitness.png" alt="Fitness View">
-                        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Fitness Tracker</p>
+                        <img src="images/solis-screen-fitness.png" alt="Fitness View" style="width: 100%; border-radius: 8px;">
+                        <p class="interface-caption">Fitness Tracker</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="case-study-content reveal" style="max-width: 800px; margin: 6rem auto;">
-            <h2>Key Features</h2>
+        <section class="case-study-content case-study-centered reveal">
+            <h2 style="margin-top: 0;">Key Features</h2>
             <p>The application handles complex logic behind a simple UI:</p>
-            <ul style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 1rem; border-left: 2px solid var(--dark-green); padding-left: 1rem;">
+            
+            <ul class="feature-list">
+                <li class="feature-list-item">
                     <strong>Household Sync:</strong> Users can invite family members to join their "Household," enabling a shared Shopping List and Chore Chart.
                 </li>
-                <li style="margin-bottom: 1rem; border-left: 2px solid var(--dark-green); padding-left: 1rem;">
+                <li class="feature-list-item">
                     <strong>Fitness Hub:</strong> Custom workout routines linked directly to habit completion logic.
                 </li>
-                <li style="margin-bottom: 1rem; border-left: 2px solid var(--dark-green); padding-left: 1rem;">
+                <li class="feature-list-item">
                     <strong>Smart Journaling:</strong> A "Win of the Day" prompt and daily reflection that saves to a history database.
                 </li>
             </ul>
@@ -120,9 +121,9 @@
             </p>
         </section>
 
-        <div style="text-align: center; margin: 6rem 0; border-top: 1px solid var(--border-color); padding-top: 4rem;">
-            <p style="color: var(--text-muted); margin-bottom: 1rem;">Next Project</p>
-            <a href="project-generator.html" style="font-size: 2rem; font-family: 'Playfair Display', serif; color: var(--dark-green); border-bottom: 2px solid transparent; transition: 0.3s;">SVG Shape Generator &rarr;</a>
+        <div class="next-page-container">
+            <p class="next-page-label">Next Project</p>
+            <a href="project-generator.html" class="next-page-link">SVG Shape Generator &rarr;</a>
         </div>
 
     </main>
@@ -134,7 +135,7 @@
             <a href="#" target="_blank">GitHub</a>
             <a href="mailto:your@email.com">Email</a>
         </div>
-        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
+        <p>© 2026 Alfred Duckworth. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
