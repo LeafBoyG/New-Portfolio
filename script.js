@@ -112,22 +112,46 @@ window.openSliderLightbox = function(element) {
     // 3. Find which image the user clicked
     const startIndex = galleryImages.indexOf(element);
 
-    // 4. Build the vertical feed dynamically
+// 4. Build the vertical feed dynamically
     galleryImages.forEach((img) => {
         const editSrc = img.getAttribute('src');
         const rawSrc = img.getAttribute('data-raw-src') || editSrc;
+        
+        // NEW: Grab the location data (if it exists)
+        const locationText = img.getAttribute('data-location');
+        let locationHTML = '';
+        
+        if (locationText) {
+            // Creates the badge with a minimalist SVG map pin icon
+            locationHTML = `
+                <div class="lb-location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    ${locationText}
+                </div>
+            `;
+        }
 
-        // Create a new slide container
         const slide = document.createElement('div');
         slide.className = 'lightbox-slide';
 
-        // Inject the image and slider HTML
+        // Inject the images, labels, location badge, and slider
         slide.innerHTML = `
             <div class="slide-content">
-                <img class="lb-img-layer lb-img-after" src="${editSrc}" alt="Edited Version">
-                <img class="lb-img-layer lb-img-before" src="${rawSrc}" alt="Raw Version" style="clip-path: inset(0 50% 0 0);">
+                <img src="${editSrc}" alt="Edited Version" style="display: block; max-width: 90vw; max-height: 65vh; width: auto; height: auto;">
+                <img class="lb-img-layer lb-img-before" src="${rawSrc}" alt="Raw Version" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; clip-path: inset(0 50% 0 0);">
+                
                 <span class="lb-label lb-label-before">RAW</span>
                 <span class="lb-label lb-label-after">EDIT</span>
+                
+                ${locationHTML}
+                
+                <div class="slider-handle">
+                    <div class="slider-handle-circle"></div>
+                </div>
+
                 <input type="range" min="0" max="100" value="50" class="lb-comparison-range">
             </div>
         `;
@@ -135,18 +159,24 @@ window.openSliderLightbox = function(element) {
         // 5. Add the Before/After slider logic for THIS specific slide
         const range = slide.querySelector('.lb-comparison-range');
         const imgBefore = slide.querySelector('.lb-img-before');
+        const handle = slide.querySelector('.slider-handle');
 
+        // Desktop Dragging
         range.addEventListener('input', (e) => {
-            imgBefore.style.clipPath = `inset(0 ${100 - e.target.value}% 0 0)`;
+            const percent = e.target.value;
+            imgBefore.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+            handle.style.left = `${percent}%`;
         });
 
-        // Touch support for mobile swiping on the slider
+        // Mobile Swiping
         range.addEventListener('touchmove', (e) => {
             const rect = range.getBoundingClientRect();
             const touchX = e.touches[0].clientX;
             let percent = ((touchX - rect.left) / rect.width) * 100;
             percent = Math.max(0, Math.min(100, percent));
+            
             imgBefore.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+            handle.style.left = `${percent}%`;
             range.value = percent;
         });
 

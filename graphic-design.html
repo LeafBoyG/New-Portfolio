@@ -9,6 +9,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Small helper to flip the grid on desktop but keep it normal on mobile */
+        @media (min-width: 769px) {
+            .grid-reverse { direction: rtl; }
+            .grid-reverse > * { direction: ltr; }
+        }
+        .design-mockup {
+            background-color: #EAEAEA; 
+            aspect-ratio: 4/3; 
+            border-radius: 12px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border: 1px dashed var(--border-color);
+            color: var(--text-muted);
+            font-family: monospace;
+            text-align: center;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+        }
+    </style>
 </head>
 <body>
 
@@ -20,7 +41,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Development</a></li>
-                <li><a href="graphic-design.html" class="active">Graphic Design</a></li> <li><a href="photography.html">Photography</a></li>
+                <li><a href="graphic-design.html" class="active">Graphic Design</a></li>
+                <li><a href="photography.html">Photography</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="resume.html" class="resume-link">Resume</a></li>
             </ul>
@@ -29,89 +51,80 @@
 
     <main>
 
-        <section class="hero reveal">
-            <h1>Visual Systems.<br>Communicated Clearly.</h1>
-            <p class="project-subtitle">Brand identity, vector illustration, and print media designed to tell a story.</p>
+        <section class="project-header reveal" style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); margin-bottom: 1rem; font-size: 0.9rem;">Print & Identity</p>
+            <h1 style="font-size: 4rem; margin-bottom: 1rem;">Graphic Design</h1>
+            <p class="project-subtitle" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;">A collection of print media, editorial layouts, and brand identity concepts.</p>
         </section>
 
-        <section class="project-gallery reveal">
-            <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: left; padding-left: 10px; border-left: 3px solid var(--dark-green);">Design Collections</h2>
-
-            <div class="project-grid">
-                
-                <a href="#" class="project-card-link" style="cursor: default;"> <div class="project-card">
-                        <div style="background-color: #f4f4f4; height: 250px; border-radius: 8px; margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <span style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--dark-green);">Aa</span>
-                        </div>
-                        <div style="padding: 0 0.5rem;">
-                            <h3>Brand Identity</h3>
-                            <p>Logos, Typography & Guidelines</p> 
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="project-card-link" style="cursor: default;">
-                    <div class="project-card">
-                        <div style="background-color: #f4f4f4; height: 250px; border-radius: 8px; margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center;">
-                           <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--dark-green)" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                        </div>
-                        <div style="padding: 0 0.5rem;">
-                            <h3>Digital Illustration</h3>
-                            <p>Vector Art & Iconography</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="project-card-link" style="cursor: default;">
-                    <div class="project-card">
-                        <div style="background-color: #f4f4f4; height: 250px; border-radius: 8px; margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center;">
-                             <span style="border: 2px solid var(--dark-green); padding: 5px 15px; text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); font-size: 0.8rem;">Print</span>
-                        </div>
-                        <div style="padding: 0 0.5rem;">
-                            <h3>Print Media</h3>
-                            <p>Editorial Layouts & Posters</p>
-                        </div>
-                    </div>
-                </a>
-
+        <section class="about-grid reveal" style="align-items: center; margin-bottom: 8rem;">
+            <div class="about-text">
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); margin-bottom: 0.5rem; font-size: 0.8rem;">01. Editorial Challenge</p>
+                <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; font-size: 2.5rem;">Wander/Wild</h2>
+                <p style="margin-bottom: 1rem;"><strong>The Brief:</strong> Design a double-page layout for a feature article titled "The Silent Fjords: A Kayaker's Guide to Norway." The layout needs to balance a 500-word article, a compelling headline, a pull quote, and high-quality photography.</p>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #555;"><strong>Focus:</strong> Grid systems, text wrapping, drop caps, typographic hierarchy, and managing bleed/margins for the gutter.</p>
+                <a href="project-wander-wild.html" class="cta-button magnetic-btn" style="display: inline-block;">View Spread</a>
+            </div>
+            <div class="reveal-img">
+                <img src="images/graphic-design/wander-wild-hero.webp" alt="Wander/Wild Main Magazine Mockup" style="width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-soft); border: 1px solid var(--border-color);">
             </div>
         </section>
 
-        <div class="section-alt reveal">
-            <section style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center;">
-                <h2 style="margin-bottom: 3rem; color: var(--dark-green);">Design Toolkit</h2>
-                
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem;">
-                    
-                    <div style="text-align: left;">
-                        <h4 style="color: var(--dark-green); border-bottom: 2px solid var(--dark-green); padding-bottom: 0.5rem; margin-bottom: 1rem; display: inline-block;">Software</h4>
-                        <ul style="list-style: none; color: var(--text-muted);">
-                            <li style="margin-bottom: 0.5rem;">Affinity Designer 2</li>
-                            <li style="margin-bottom: 0.5rem;">Krita</li>
-                            <li style="margin-bottom: 0.5rem;">Figma (UI)</li>
-                        </ul>
-                    </div>
+        <section class="about-grid grid-reverse reveal" style="align-items: center; margin-bottom: 8rem;">
+            <div class="about-text" style="padding-left: 2rem;">
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); margin-bottom: 0.5rem; font-size: 0.8rem;">02. Information Architecture</p>
+                <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; font-size: 2.5rem;">Paws & Progress</h2>
+                <p style="margin-bottom: 1rem;"><strong>The Brief:</strong> An informational tri-fold brochure to hand out at community events. It must explain their mission, detail how to adopt, outline volunteer opportunities, and provide contact info.</p>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #555;"><strong>Focus:</strong> Folding logic (ensuring panels line up correctly), organizing dense information into digestible chunks, and utilizing iconography.</p>
+                <a href="#" class="cta-button magnetic-btn" style="display: inline-block;">View Brochure</a>
+            </div>
+            <div class="reveal-img">
+                <div class="design-mockup">[ Replace with Photoshop Mockup of Tri-Fold Brochure ]</div>
+            </div>
+        </section>
 
-                    <div style="text-align: left;">
-                        <h4 style="color: var(--dark-green); border-bottom: 2px solid var(--dark-green); padding-bottom: 0.5rem; margin-bottom: 1rem; display: inline-block;">Disciplines</h4>
-                        <ul style="list-style: none; color: var(--text-muted);">
-                            <li style="margin-bottom: 0.5rem;">Typography</li>
-                            <li style="margin-bottom: 0.5rem;">Color Theory</li>
-                            <li style="margin-bottom: 0.5rem;">Grid Systems</li>
-                        </ul>
-                    </div>
+        <section class="about-grid reveal" style="align-items: center; margin-bottom: 8rem;">
+            <div class="about-text">
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); margin-bottom: 0.5rem; font-size: 0.8rem;">03. Physical Space Challenge</p>
+                <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; font-size: 2.5rem;">Nocturne Roasters</h2>
+                <p style="margin-bottom: 1rem;"><strong>The Brief:</strong> Create the packaging design for their flagship dark espresso blend, "Midnight Oil." The brand identity should be sleek, slightly moody, and modern.</p>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #555;"><strong>Focus:</strong> Working with die-lines, 3D spatial thinking, barcode placement, and understanding how a design wraps around a physical stand-up pouch.</p>
+                <a href="#" class="cta-button magnetic-btn" style="display: inline-block;">View Packaging</a>
+            </div>
+            <div class="reveal-img">
+                <div class="design-mockup">[ Replace with 3D Mockup of Coffee Pouch ]</div>
+            </div>
+        </section>
 
-                    <div style="text-align: left;">
-                        <h4 style="color: var(--dark-green); border-bottom: 2px solid var(--dark-green); padding-bottom: 0.5rem; margin-bottom: 1rem; display: inline-block;">Artistic</h4>
-                        <ul style="list-style: none; color: var(--text-muted);">
-                            <li style="margin-bottom: 0.5rem;">Krita (Painting)</li>
-                            <li style="margin-bottom: 0.5rem;">Character Design</li>
-                            <li style="margin-bottom: 0.5rem;">Wacom Tablet</li>
-                        </ul>
-                    </div>
+        <section class="about-grid grid-reverse reveal" style="align-items: center; margin-bottom: 8rem;">
+            <div class="about-text" style="padding-left: 2rem;">
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); margin-bottom: 0.5rem; font-size: 0.8rem;">04. Typographic Challenge</p>
+                <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; font-size: 2.5rem;">Synesthesia</h2>
+                <p style="margin-bottom: 1rem;"><strong>The Brief:</strong> Design an 18x24 inch promotional poster and a physical admission ticket stub that captures the energetic, cutting-edge vibe of an electronic music festival.</p>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #555;"><strong>Focus:</strong> Expressive typography, eye-catching color palettes (CMYK vs. RGB), and translating a large-scale design into a small-scale format.</p>
+                <a href="#" class="cta-button magnetic-btn" style="display: inline-block;">View Poster & Tickets</a>
+            </div>
+            <div class="reveal-img">
+                <div class="design-mockup">[ Replace with Realistic Poster/Ticket Mockup ]</div>
+            </div>
+        </section>
 
-                </div>
-            </section>
+        <section class="about-grid reveal" style="align-items: center; margin-bottom: 8rem;">
+            <div class="about-text">
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--dark-green); margin-bottom: 0.5rem; font-size: 0.8rem;">05. Brand Consistency</p>
+                <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; font-size: 2.5rem;">Vanguard Architects</h2>
+                <p style="margin-bottom: 1rem;"><strong>The Brief:</strong> Design a professional stationery suite (letterhead, envelope, and business card) that reflects a high-end architecture firm known for minimalist and brutalist buildings.</p>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #555;"><strong>Focus:</strong> Restraint, alignment, brand consistency across different dimensions, and suggesting physical print finishes like embossed logos or foil stamping.</p>
+                <a href="#" class="cta-button magnetic-btn" style="display: inline-block;">View Stationery Suite</a>
+            </div>
+            <div class="reveal-img">
+                <div class="design-mockup">[ Replace with Flat-Lay Stationery Mockup ]</div>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin: 6rem 0; padding-top: 4rem; border-top: 1px solid var(--border-color);">
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Next Section</p>
+            <a href="photography.html" style="font-size: 2rem; font-family: 'Playfair Display', serif; color: var(--dark-green); border-bottom: 2px solid transparent; transition: 0.3s;">Photography &rarr;</a>
         </div>
 
     </main>
@@ -123,7 +136,7 @@
             <a href="#" target="_blank">GitHub</a>
             <a href="mailto:your@email.com">Email</a>
         </div>
-        <p>© 2025 Alfred Duckworth. All rights reserved.</p>
+        <p>© 2026 Alfred Duckworth. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

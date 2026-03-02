@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Dump - Alfred Duckworth</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">ALFRED DUCKWORTH <span class="status-dot"></span></div>
+            <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Development</a></li>
+                <li><a href="graphic-design.html">Graphic Design</a></li>
+                <li><a href="photography.html" class="active">Photography</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="resume.html" class="resume-link">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="project-header reveal">
+            <p>Uncategorized Archives</p>
+            <h1>Photo Dump</h1>
+            <p class="project-subtitle">Moments, outtakes, and visual experiments that don't fit in a box.</p>
+        </section>
+
+        <section class="project-details">
+            <div class="masonry-wrapper">
+                
+<div class="masonry-column">
+                    <div class="reveal">
+                        <img src="photography/dump/Edit/PuddleWithDarkReflection.webp" 
+                             data-raw-src="photography/dump/Raw/PuddleWithDarkReflection.webp" 
+                             alt="Yellow Fiat" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/dump/Edit/DogWalkerLighthouse.webp" 
+                             data-raw-src="photography/dump/Raw/DogWalkerLighthouse.webp" 
+                             alt="Yellow Fiat" 
+                             onclick="openSliderLightbox(this)">
+                    </div>                   
+                     <div class="reveal">
+                        <img src="photography/dump/Edit/AnimalBombShedThing.webp" 
+                             data-raw-src="photography/dump/Raw/AnimalBombShedThing.webp" 
+                             alt="Yellow Fiat" 
+                             onclick="openSliderLightbox(this)">
+                    </div>                  
+                      <div class="reveal">
+                        <img src="photography/dump/Edit/.webp" 
+                             data-raw-src="photography/dump/Raw/.webp" 
+                             alt="Yellow Fiat" 
+                             onclick="openSliderLightbox(this)">
+                    </div>
+                </div>
+
+                <div class="masonry-column">
+                    <div class="reveal">
+                        <img src="photography/dump/image2.webp" alt="Random Dump 2" onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/dump/image5.webp" alt="Random Dump 5" onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/dump/image8.webp" alt="Random Dump 8" onclick="openSliderLightbox(this)">
+                    </div>
+                </div>
+
+                <div class="masonry-column">
+                    <div class="reveal">
+                        <img src="photography/dump/image3.webp" alt="Random Dump 3" onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/dump/image6.webp" alt="Random Dump 6" onclick="openSliderLightbox(this)">
+                    </div>
+                    <div class="reveal">
+                        <img src="photography/dump/image9.webp" alt="Random Dump 9" onclick="openSliderLightbox(this)">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+<div class="next-page-container">
+    <p class="next-page-label">Next Collection</p>
+    <a href="project-cars.html" class="next-page-link">Automotive &rarr;</a>
+</div>
+
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <div class="close-btn" onclick="closeLightbox()">&times;</div>
+        <div id="lightbox-track" class="lightbox-track"></div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="mailto:your@email.com">Email</a>
+        </div>
+        <p>© 2026 Alfred Duckworth. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
